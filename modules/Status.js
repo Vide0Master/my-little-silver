@@ -2,6 +2,11 @@ const LI = require('./lines/LineInteract')
 const status = require('./lines/Status.json')
 const {ActivityType} = require('discord.js')
 
+let interval=0;
+function intervalUpdate(){
+    interval = (1000*60*5)+(Math.random()*(1000*60*55))
+}
+
 module.exports=function(client){
     setInterval(() => {
         switch(Math.round(Math.random()*2)){
@@ -24,5 +29,6 @@ module.exports=function(client){
                 });
             };break;
         }
-    }, 1000 * 10);
+        intervalUpdate()
+    }, interval);
 }

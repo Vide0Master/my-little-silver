@@ -27,5 +27,5 @@ client.login(token);
 client.on('ready', () => {
     console.log(`Залогинился как ${client.user.tag}!`);
     //* попытка запуска модуля статуса
-    try { require('./modules/Status')(client) } catch { console.log('Ошибка модуля статуса!') }
+    try { require('./modules/Status')(client) } catch(err) { console.log(`\nОшибка модуля статуса! [${err}]`) }
 });
