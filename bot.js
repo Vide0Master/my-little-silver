@@ -2,11 +2,13 @@
 
 //* подключение ключевых сис. модулей
 //const testbed = require('./modules/TEMPLATE');
-const Commands = require('./modules/commands')
 const cLog = require('./modules/consoleLogger')
+let Commands;
+
+
 
 //* подключение библиотек
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, Events } = require('discord.js');
 
 //* создание клиента "пустышки"
 const client = new Client({
@@ -19,8 +21,7 @@ const client = new Client({
 });
 
 //* логин пустышки
-const token = require('./config/token.json');
-client.login(token);
+client.login(require('./config/token.json'));
 
 //* действия бота по готовности
 client.on('ready', () => {
@@ -31,4 +32,13 @@ client.on('ready', () => {
         cLog(`Модуль статуса успешно запущен!`, 'g')
     }
     catch (err) { cLog(`Ошибка модуля статуса!\n[${err}]`, 'e') }
-});
+    try {
+        Commands = require('./modules/interactions/commands/commands')(client)
+        cLog(`Модуль комманд успешно запущен!`, 'g')
+    }
+    catch (err) { cLog(`Ошибка модуля комманд!\n[${err}]`, 'e') }
+})
+
+client.on(Events.InteractionCreate, interaction => {
+    if (interaction.isCommand()) { Commands(interaction) }
+})
