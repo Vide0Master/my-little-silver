@@ -3,8 +3,9 @@ const fs = require('fs');
 const path = require('path');
 
 //* подключение модулей
-const testbed = require('./modules/testbed');
+//const testbed = require('./modules/TEMPLATE');
 const Commands = require('./modules/commands')
+//const Status = require('./modules/Status')(client)
 
 //* подключение библиотеки discord.js для "намерений" и главной библиотеки клиента
 const { Client, GatewayIntentBits } = require('discord.js');
@@ -26,5 +27,5 @@ client.login(token);
 //* действия бота по готовности
 client.on('ready', () => {
   console.log(`Залогинился как ${client.user.tag}!`);
-  console.log(testbed);
+  const Status = require('./modules/Status')(client)
 });

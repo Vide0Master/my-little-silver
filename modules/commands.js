@@ -3,3 +3,5 @@ class Commands{
       console.log('Hello from fooController!');
     }
 };
+
+module.exports = Commands;
