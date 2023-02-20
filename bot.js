@@ -11,7 +11,7 @@ const { Client, GatewayIntentBits } = require('discord.js');
 
 //* создание нового "клиента"
 const client = new Client({
-    intents:[
+    intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
@@ -25,6 +25,7 @@ client.login(token);
 
 //* действия бота по готовности
 client.on('ready', () => {
-  console.log(`Залогинился как ${client.user.tag}!`);
-  require('./modules/Status')(client)
+    console.log(`Залогинился как ${client.user.tag}!`);
+    //* попытка запуска модуля статуса
+    try { require('./modules/Status')(client) } catch { console.log('Ошибка модуля статуса!') }
 });
