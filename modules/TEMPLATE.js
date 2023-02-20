@@ -1,9 +1,9 @@
 
 //* Template от VideoMaster
 
-class template{
+class template {
     exampleFunc() {
-      console.log('Hello from template!');
+        console.log('Hello from template!');
     }
 };
 module.exports = template;

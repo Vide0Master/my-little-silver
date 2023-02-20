@@ -1,9 +1,9 @@
 
 //* Commands от VideoMaster
 
-class Commands{
+class Commands {
     foo() {
-      console.log('Hello from fooController!');
+        console.log('Hello from fooController!');
     }
 };
 

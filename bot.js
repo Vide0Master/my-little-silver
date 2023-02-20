@@ -24,9 +24,11 @@ client.login(token);
 
 //* действия бота по готовности
 client.on('ready', () => {
-    cLog(`Залогинился как ${client.user.tag}!`,'i');
+    cLog(`Залогинился как ${client.user.tag}!`, 'i');
     //* попытка запуска модуля статуса
-    try { require('./modules/Status')(client)
-    cLog(`Модуль статуса успешно запущен!`,'g') }
-    catch (err) { cLog(`Ошибка модуля статуса!\n[${err}]`,'e') }
+    try {
+        require('./modules/Status')(client)
+        cLog(`Модуль статуса успешно запущен!`, 'g')
+    }
+    catch (err) { cLog(`Ошибка модуля статуса!\n[${err}]`, 'e') }
 });
