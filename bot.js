@@ -1,15 +1,13 @@
-//* подключение стандартных node.js библиотек
-const fs = require('fs');
-const path = require('path');
+//? MY LITTLE SILVER, DISCORD TAMAGOCHI BOT, MADE BY VIDEOMASTER
 
-//* подключение модулей
+//* Connecting core modules
 //const testbed = require('./modules/TEMPLATE');
 const Commands = require('./modules/commands')
 
-//* подключение библиотеки discord.js для "намерений" и главной библиотеки клиента
+//* Requiring some discord libraries
 const { Client, GatewayIntentBits } = require('discord.js');
 
-//* создание нового "клиента"
+//* Creating empty client
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -19,13 +17,13 @@ const client = new Client({
     ]
 });
 
-//* авторизация
+//* Authentication
 const token = require('./config/token.json');
 client.login(token);
 
 //* действия бота по готовности
 client.on('ready', () => {
     console.log(`Залогинился как ${client.user.tag}!`);
-    //* попытка запуска модуля статуса
+    //* State module startup try
     try { require('./modules/Status')(client) } catch(err) { console.log(`\nОшибка модуля статуса! [${err}]`) }
 });

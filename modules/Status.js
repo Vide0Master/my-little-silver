@@ -1,3 +1,6 @@
+
+//* Status by VideoMaster
+
 const LI = require('./lines/LineInteract')
 const status = require('./lines/Status.json')
 const {ActivityType} = require('discord.js')
