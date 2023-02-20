@@ -3,6 +3,7 @@
 //* подключение ключевых сис. модулей
 //const testbed = require('./modules/TEMPLATE');
 const Commands = require('./modules/commands')
+const cLog = require('./modules/consoleLogger')
 
 //* подключение библиотек
 const { Client, GatewayIntentBits } = require('discord.js');
@@ -23,9 +24,9 @@ client.login(token);
 
 //* действия бота по готовности
 client.on('ready', () => {
-    console.log(`Залогинился как ${client.user.tag}!`);
+    cLog(`Залогинился как ${client.user.tag}!`,'i');
     //* попытка запуска модуля статуса
     try { require('./modules/Status')(client) }
-    catch (err) { console.log(`\n\x1b[31mОшибка модуля статуса! [${err}]\x1b[0m`) }
-    finally { console.log(`\n\x1b[32m Модуль статуса успешно запущен!\x1b[0m`) }
+    catch (err) { cLog(`Ошибка модуля статуса! [${err}]`,'e') }
+    finally { cLog(`Модуль статуса успешно запущен!`,'g') }
 });
