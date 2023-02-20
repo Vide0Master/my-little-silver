@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 //* подключение модулей
-const testbed = require('./modules/testbed.js');
+const testbed = require('./modules/testbed');
+const Commands = require('./modules/commands')
 
 //* подключение библиотеки discord.js для "намерений" и главной библиотеки клиента
 const { Client, GatewayIntentBits } = require('discord.js');
@@ -27,4 +28,3 @@ client.on('ready', () => {
   console.log(`Залогинился как ${client.user.tag}!`);
   console.log(testbed);
 });
-
