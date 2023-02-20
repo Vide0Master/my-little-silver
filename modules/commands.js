@@ -1,5 +1,5 @@
 
-//* Commands by VideoMaster
+//* Commands от VideoMaster
 
 class Commands{
     foo() {

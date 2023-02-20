@@ -1,5 +1,5 @@
 
-//* Status by VideoMaster
+//* Status от VideoMaster
 
 const LI = require('./lines/LineInteract')
 const status = require('./lines/Status.json')

@@ -1,13 +1,13 @@
-//? MY LITTLE SILVER, DISCORD TAMAGOCHI BOT, MADE BY VIDEOMASTER
+//? MY LITTLE SILVER, тамагочи бот, от VideoMaster
 
-//* Connecting core modules
+//* подключение ключевых сис. модулей
 //const testbed = require('./modules/TEMPLATE');
 const Commands = require('./modules/commands')
 
-//* Requiring some discord libraries
+//* подключение библиотек
 const { Client, GatewayIntentBits } = require('discord.js');
 
-//* Creating empty client
+//* создание клиента "пустышки"
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -17,13 +17,15 @@ const client = new Client({
     ]
 });
 
-//* Authentication
+//* логин пустышки
 const token = require('./config/token.json');
 client.login(token);
 
 //* действия бота по готовности
 client.on('ready', () => {
     console.log(`Залогинился как ${client.user.tag}!`);
-    //* State module startup try
-    try { require('./modules/Status')(client) } catch(err) { console.log(`\nОшибка модуля статуса! [${err}]`) }
+    //* попытка запуска модуля статуса
+    try { require('./modules/Status')(client) }
+    catch (err) { console.log(`\n\x1b[31mОшибка модуля статуса! [${err}]\x1b[0m`) }
+    finally { console.log(`\n\x1b[32m Модуль статуса успешно запущен!\x1b[0m`) }
 });

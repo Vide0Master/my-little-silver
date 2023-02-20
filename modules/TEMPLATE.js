@@ -1,5 +1,5 @@
 
-//* Template by VideoMaster
+//* Template от VideoMaster
 
 class template{
     exampleFunc() {

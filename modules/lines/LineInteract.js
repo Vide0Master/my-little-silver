@@ -1,5 +1,5 @@
 
-//* Line interaction by VideoMaster
+//* Line interaction от VideoMaster
 
 class LineInteract{
     static returnRandomLineFrom(lineList) {
