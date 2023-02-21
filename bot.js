@@ -31,7 +31,7 @@ client.on('ready', () => {
     }
     catch (err) { cLog(`Ошибка модуля статуса!\n[${err}]`, 'e') }
     try {
-        commands.loadCommands(client)
+        commands.updateCommands(client)
         cLog(`Модуль комманд успешно запущен!`, 'g')
     }
     catch (err) { cLog(`Ошибка модуля комманд!\n[${err}]`, 'e') }

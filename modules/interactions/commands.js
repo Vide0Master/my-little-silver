@@ -9,7 +9,7 @@ const cLog = require('../consoleLogger')
 
 
 class Commands {
-    static loadCommands(client) {
+    static async updateCommands(client) {
         client.commands = new Collection();
 
         const commandsPath = path.join(__dirname, './commands');
@@ -25,6 +25,13 @@ class Commands {
                 cLog(`Комманда ${file} не была загружена`, 'w')
             }
         }
+
+        const coms = await client.application.commands.fetch()
+        coms.forEach(element => {
+            if (!client.commands.get(element.name)) {
+                client.application.commands.delete(element.id)
+            }
+        });
     }
     static async commandExec(interaction){
         const command = interaction.client.commands.get(interaction.commandName);

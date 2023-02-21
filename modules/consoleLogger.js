@@ -5,19 +5,19 @@
 module.exports = function (line, type) {
     switch (type) {
         default: {
-            console.log(`\n\x1b[0m${line}\x1b[0m`)
+            console.log(`\x1b[0m${line}\x1b[0m`)
         }; break;
         case "e": {
-            console.log(`\n\x1b[31m${line}\x1b[0m`)
+            console.log(`\x1b[41m\x1b[37mERRO\x1b[0m ${line}`)
         }; break;
         case "g": {
-            console.log(`\n\x1b[32m${line}\x1b[0m`)
+            console.log(`\x1b[42m\x1b[37mGOOD\x1b[0m ${line}`)
         }; break;
         case "w": {
-            console.log(`\n\x1b[33m${line}\x1b[0m`)
+            console.log(`\x1b[43m\x1b[37mWARN\x1b[0m ${line}`)
         }; break;
         case "i": {
-            console.log(`\n\x1b[35m${line}\x1b[0m`)
+            console.log(`\x1b[45m\x1b[37mINFO\x1b[0m ${line}`)
         }; break;
     }
 };
