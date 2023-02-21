@@ -37,7 +37,7 @@ client.on('ready', () => {
     catch (err) { cLog(`Ошибка модуля комманд!\n[${err}]`, 'e') }
 })
 
-client.on(Events.InteractionCreate, async interaction => {
-    if (!interaction.isChatInputCommand()) return;
-    commands.commandExec(interaction)
+client.on(Events.InteractionCreate, interaction => {
+    if (interaction.isCommand()) commands.commandExec(interaction);
+    
 }); 
