@@ -3,9 +3,7 @@
 //* подключение ключевых сис. модулей
 //const testbed = require('./modules/TEMPLATE');
 const cLog = require('./modules/consoleLogger')
-let Commands;
-
-
+const commands = require('./modules/interactions/commands.js')
 
 //* подключение библиотек
 const { Client, GatewayIntentBits, Events } = require('discord.js');
@@ -33,12 +31,13 @@ client.on('ready', () => {
     }
     catch (err) { cLog(`Ошибка модуля статуса!\n[${err}]`, 'e') }
     try {
-        Commands = import('./modules/interactions/commands.js')(client)
+        commands.loadCommands(client)
         cLog(`Модуль комманд успешно запущен!`, 'g')
     }
     catch (err) { cLog(`Ошибка модуля комманд!\n[${err}]`, 'e') }
 })
 
-client.on(Events.InteractionCreate, interaction => {
-    if (interaction.isCommand()) { Commands(interaction) }
-})
+client.on(Events.InteractionCreate, async interaction => {
+    if (!interaction.isChatInputCommand()) return;
+    commands.commandExec(interaction)
+});
