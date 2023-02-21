@@ -21,8 +21,9 @@ class Commands {
             if ('command' in commandF && 'execute' in commandF) {
                 client.commands.set(commandF.command.name, commandF);
                 client.application.commands.create(commandF.command)
+                cLog(`Комманда ${file} загружена.`, 'i')
             } else {
-                cLog(`Комманда ${file} не была загружена`, 'w')
+                cLog(`Комманда ${file} не была загружена!`, 'e')
             }
         }
 
@@ -44,7 +45,7 @@ class Commands {
         try {
             await command.execute(interaction);
         } catch (error) {
-            cLog(`Произошла непредвиденная ошибка [${error}] в комманде [${interaction.commandName}]`,'e')
+            cLog(`Произошла непредвиденная ошибка [${error}] в комманде [${interaction.commandName}]!`,'e')
             await interaction.reply({ content: 'Произошла ошибка обработки комманды, сообщите об этом разработчику!', ephemeral: true });
         }
     }
