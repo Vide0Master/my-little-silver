@@ -35,6 +35,7 @@ client.on('ready', () => {
         cLog(`Модуль комманд успешно запущен!`, 'g')
     }
     catch (err) { cLog(`Ошибка модуля комманд!\n[${err}]`, 'e') }
+    cLog('Я запустился!', 'uwu')
 })
 
 client.on(Events.InteractionCreate, interaction => {
