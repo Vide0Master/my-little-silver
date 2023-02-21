@@ -44,8 +44,8 @@ class Commands {
         try {
             await command.execute(interaction);
         } catch (error) {
-            cLog(`Произошла непредвиденная ошибка!\n[${error}]`)
-            await interaction.reply({ content: 'Произошла ошибка обработки комманды!', ephemeral: true });
+            cLog(`Произошла непредвиденная ошибка [${error}] в комманде [${interaction.commandName}]`,'e')
+            await interaction.reply({ content: 'Произошла ошибка обработки комманды, сообщите об этом разработчику!', ephemeral: true });
         }
     }
 }

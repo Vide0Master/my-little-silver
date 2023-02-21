@@ -5,13 +5,9 @@ const LI = require('./lines/LineInteract')
 const status = require('./lines/Status.json')
 const { ActivityType } = require('discord.js')
 
-let interval = 0;
-function intervalUpdate() {
-    interval = (1000 * 60 * 5) + (Math.random() * (1000 * 60 * 55))
-}
-
 module.exports = function (client) {
     setInterval(() => {
+        console.log('sex')
         switch (Math.round(Math.random() * 2)) {
             case 0: {
                 client.user.setPresence({
@@ -32,6 +28,5 @@ module.exports = function (client) {
                 });
             }; break;
         }
-        intervalUpdate()
-    }, interval);
+    }, (1000 * 60 * 10));
 }

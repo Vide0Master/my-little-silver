@@ -40,4 +40,4 @@ client.on('ready', () => {
 client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isChatInputCommand()) return;
     commands.commandExec(interaction)
-});
+}); 

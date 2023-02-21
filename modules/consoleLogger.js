@@ -8,7 +8,7 @@ module.exports = function (line, type) {
             console.log(`\x1b[0m${line}\x1b[0m`)
         }; break;
         case "e": {
-            console.log(`\x1b[41m\x1b[37mERRO\x1b[0m ${line}`)
+            console.log(`\x1b[41m\x1b[37m ERR\x1b[0m ${line}`)
         }; break;
         case "g": {
             console.log(`\x1b[42m\x1b[37mGOOD\x1b[0m ${line}`)
