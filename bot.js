@@ -40,5 +40,5 @@ client.on('ready', () => {
 
 client.on(Events.InteractionCreate, interaction => {
     if (interaction.isCommand()) commands.commandExec(interaction);
-    
+    if (true){}
 }); 

@@ -1,5 +1,5 @@
 
-//* testCommand от VideoMaster
+//* bot_info от VideoMaster
 
 const { SlashCommandBuilder, EmbedBuilder} = require('discord.js');
 const inf = require('../../../config/techInfo.json')
