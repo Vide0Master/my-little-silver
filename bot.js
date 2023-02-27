@@ -4,7 +4,7 @@
 //const testbed = require('./modules/TEMPLATE');
 const cLog = require('./modules/consoleLogger')
 const commands = require('./modules/interactions/commands.js')
-
+const telemetry = require('./modules/telemetry')
 //* подключение библиотек
 const { Client, GatewayIntentBits, Events } = require('discord.js');
 
@@ -47,4 +47,4 @@ client.on(Events.InteractionCreate, interaction => {
             };break;
         }
     }
-}); 
+});
