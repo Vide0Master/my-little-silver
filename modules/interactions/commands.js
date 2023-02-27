@@ -41,7 +41,7 @@ class Commands {
             cLog(`Комманда ${interaction.commandName} не найдена!`,'e')
             return;
         }
-    
+
         try {
         await command.execute(interaction);
         } catch (error) {

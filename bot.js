@@ -40,5 +40,11 @@ client.on('ready', () => {
 
 client.on(Events.InteractionCreate, interaction => {
     if (interaction.isCommand()) commands.commandExec(interaction);
-    if (true){}
+    if (interaction.isStringSelectMenu()) {
+        switch(interaction.customId){
+            case 'version':{
+                require('./modules/interactions/menus/version_menu')(interaction)
+            };break;
+        }
+    }
 }); 
