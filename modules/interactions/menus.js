@@ -18,8 +18,8 @@ class Menus {
         for (const file of menusFiles) {
             const filePath = path.join(menusPath, file);
             const menuF = require(filePath);
-            if ('menu' in menuF && 'execute' in menuF) {
-                client.menus.set(menuF.menu.name, menuF);
+            if ('execute' in menuF) {
+                client.menus.set(file.slice(0,-3), menuF);
                 cLog(`Файл меню ${file} загружен.`, 'i')
             } else {
                 cLog(`Файл меню ${file} не был загружен!`, 'e')
@@ -27,10 +27,10 @@ class Menus {
         }
     }
     static async menuExec(interaction){
-        const menu = interaction.client.menus.get(interaction.menuName);
+        const menu = interaction.client.menus.get(interaction.customId);
 
         if (!menu) {
-            cLog(`Файл меню ${interaction.menuName} не найден!`,'e')
+            cLog(`Файл меню ${interaction.customId} не найден!`,'e')
             return;
         }
 
