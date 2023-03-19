@@ -17,7 +17,7 @@ module.exports = function (line, type) {
             console.log(`\x1b[43m\x1b[37mWARN\x1b[0m ${line}`)
         }; break;
         case "i": {
-            console.log(`\x1b[45m\x1b[37mINFO\x1b[0m ${line}`)
+            console.log(`\x1b[44m\x1b[37mINFO\x1b[0m ${line}`)
         }; break;
         case "uwu":{
             console.log(`\x1b[45m\x1b[37m UwU\x1b[0m ${line}`)

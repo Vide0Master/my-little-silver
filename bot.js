@@ -5,7 +5,8 @@
 const cLog = require('./modules/consoleLogger')
 const commands = require('./modules/interactions/commands.js')
 const menus = require('./modules/interactions/menus.js')
-const telemetry = require('./modules/telemetry')
+const telemetry = require('./modules/telemetry.js')
+const saves = require('./modules/saveInteract.js')
 //* подключение библиотек
 const { Client, GatewayIntentBits, Events } = require('discord.js');
 
@@ -42,6 +43,8 @@ client.on('ready', () => {
     }
     catch (err) { cLog(`Ошибка модуля комманд!\n[${err}]`, 'e') }
     cLog('Я запустился!', 'uwu')
+
+    saves.testForUser('1')
 })
 
 client.on(Events.InteractionCreate, interaction => {
