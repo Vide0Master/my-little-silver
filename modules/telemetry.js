@@ -1,10 +1,10 @@
-let SC = require('./save_controller')
 
-class Telemetry{
+//* Telemetry от VideoMaster
+
+class telemetry{
     static interactionUpdate(interaction){
 
     }
-    
 }
 
-module.exports = Telemetry
+module.exports = telemetry

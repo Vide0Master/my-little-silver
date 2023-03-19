@@ -1,5 +1,5 @@
 
-//* Menus от VideoMaster
+//* Menus от Anirunahs
 
 const { Collection } = require('discord.js'); 
 const fs = require('node:fs');
