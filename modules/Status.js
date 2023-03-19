@@ -7,7 +7,6 @@ const { ActivityType } = require('discord.js')
 
 module.exports = function (client) {
     setInterval(() => {
-        console.log('sex')
         switch (Math.round(Math.random() * 2)) {
             case 0: {
                 client.user.setPresence({

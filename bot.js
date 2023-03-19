@@ -4,6 +4,7 @@
 //const testbed = require('./modules/TEMPLATE');
 const cLog = require('./modules/consoleLogger')
 const commands = require('./modules/interactions/commands.js')
+const menus = require('./modules/interactions/menus.js')
 const telemetry = require('./modules/telemetry')
 //* подключение библиотек
 const { Client, GatewayIntentBits, Events } = require('discord.js');
@@ -35,16 +36,15 @@ client.on('ready', () => {
         cLog(`Модуль комманд успешно запущен!`, 'g')
     }
     catch (err) { cLog(`Ошибка модуля комманд!\n[${err}]`, 'e') }
+    try {
+        menus.registerMenus(client)
+        cLog(`Модуль меню успешно запущен!`, 'g')
+    }
+    catch (err) { cLog(`Ошибка модуля комманд!\n[${err}]`, 'e') }
     cLog('Я запустился!', 'uwu')
 })
 
 client.on(Events.InteractionCreate, interaction => {
     if (interaction.isCommand()) commands.commandExec(interaction);
-    if (interaction.isStringSelectMenu()) {
-        switch(interaction.customId){
-            case 'version':{
-                require('./modules/interactions/menus/version_menu')(interaction)
-            };break;
-        }
-    }
+    if (interaction.isStringSelectMenu()) menus.menuExec(interaction);
 });
