@@ -1,8 +1,9 @@
 const fs = require('node:fs');
 const { EmbedBuilder } = require('discord.js');
 
-module.exports = function (interaction) {
-    const current = JSON.parse(fs.readFileSync(`config/versions/${interaction.values[0]}`))
+module.exports =  {
+    async execute(interaction){
+        const current = JSON.parse(fs.readFileSync(`config/versions/${interaction.values[0]}`))
     interaction.update({
         embeds:
             [new EmbedBuilder()
@@ -11,4 +12,5 @@ module.exports = function (interaction) {
                 .setDescription(current.description)
             ]
     })
+    }
 }

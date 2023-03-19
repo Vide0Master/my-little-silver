@@ -32,7 +32,7 @@ module.exports = {
                 [new ActionRowBuilder()
                     .addComponents(
                         new StringSelectMenuBuilder()
-                            .setCustomId('version')
+                            .setCustomId('version_menu')
                             .setPlaceholder('Выберите версию для просмотра')
                             .addOptions(vers)
                     )
