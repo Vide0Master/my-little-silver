@@ -44,11 +44,10 @@ client.on('ready', () => {
     catch (err) { cLog(`Ошибка модуля комманд!\n[${err}]`, 'e') }
     cLog('Я запустился!', 'uwu')
 
-    saves.createSave(69)
-    console.log(saves.getSave(69,'telemetry'))
 })
 
 client.on(Events.InteractionCreate, interaction => {
+    telemetry.updateTelemetry(interaction)
     if (interaction.isCommand()) commands.commandExec(interaction);
     if (interaction.isStringSelectMenu()) menus.menuExec(interaction);
 });
