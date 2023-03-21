@@ -18,14 +18,13 @@ class saveInteraction {
     static createSave(id){
         if(!saveInteraction.testForUser(id)){
             fs.mkdirSync(`${db}/${id}`)
-            const user={}
+            const user=this.save_template.user
             fs.writeFileSync(`${db}/${id}/user.json`,JSON.stringify(user))
-            const telemetry={}
+            const telemetry=this.save_template.telemetry
             fs.writeFileSync(`${db}/${id}/telemetry.json`,JSON.stringify(telemetry))
-            const save={}
+            const save=this.save_template.save
             fs.writeFileSync(`${db}/${id}/save.json`,JSON.stringify(save))
-        }else{
-            cLog(`При попытке регистрации пользователя id:${id}, была обнаружена существующая папка с пользователем`,'w')
+            cLog(`Зарегестрирован новый пользователь, id:${id}`,'i')
         }
     }
     static testForUser(id){
@@ -33,7 +32,6 @@ class saveInteraction {
             require(`../../${db}/${id}/user.json`)
             return true
         }catch(err){
-            cLog(`При поиске пользователя id:${id}, файл user.json не был найден.`,'w')
             return false
         }
     }
