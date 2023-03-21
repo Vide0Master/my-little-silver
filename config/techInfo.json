@@ -1,3 +1,4 @@
 {
-    "ver":"v0.2.1"
+    "ver":"v0.2.1",
+    "saveDB":"users_test"
 }
