@@ -5,7 +5,7 @@ const { SlashCommandBuilder, EmbedBuilder} = require('discord.js');
 const inf = require('../../../config/techInfo.json')
 module.exports = {
     command: new SlashCommandBuilder()
-        .setName('bot-info')
+        .setName('bot_info')
         .setDescription('Узнайте информацию о боте!'),
     async execute(interaction) {
         await interaction.reply({

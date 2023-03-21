@@ -15,16 +15,20 @@ class Menus {
         const menusPath = path.join(__dirname, './menus');
         const menusFiles = fs.readdirSync(menusPath).filter(file => file.endsWith('.js'));
 
+        let l_menus={l:[],e:[]}
         for (const file of menusFiles) {
             const filePath = path.join(menusPath, file);
             const menuF = require(filePath);
             if ('execute' in menuF) {
                 client.menus.set(file.slice(0,-3), menuF);
-                cLog(`Файл меню ${file} загружен.`, 'i')
+                l_menus.l.push(file)
             } else {
-                cLog(`Файл меню ${file} не был загружен!`, 'e')
+                l_menus.e.push(file)
             }
         }
+
+        cLog(`Загруженные меню: ${l_menus.l}`,'i')
+        if(l_menus.e.length!=0){cLog(`Не загружены меню: ${l_menus.e}`,'i')}
     }
     static async menuExec(interaction){
         const menu = interaction.client.menus.get(interaction.customId);
