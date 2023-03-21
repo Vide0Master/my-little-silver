@@ -44,6 +44,9 @@ class saveInteraction {
             let save = saveInteraction.getSave(sfolder, 'save')
             saveInteraction.updateObject(save, saveInteraction.save_template.save)
             saveInteraction.setSave(sfolder, 'save', save)
+            let telemetry = saveInteraction.getSave(sfolder, 'telemetry')
+            saveInteraction.updateObject(telemetry, saveInteraction.save_template.telemetry)
+            saveInteraction.setSave(sfolder, 'telemetry', telemetry)
         })
         cLog(`Проверено ${saves.length} пользователей.`,'g')
     }
