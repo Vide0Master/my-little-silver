@@ -4,6 +4,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
+    settings:{active:false,public:true},
 	command: new SlashCommandBuilder()
 		.setName('example')
 		.setDescription('example command!'),

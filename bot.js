@@ -44,6 +44,7 @@ client.on('ready', () => {
     catch (err) { cLog(`Ошибка модуля комманд!\n[${err}]`, 'e') }
     cLog('Я запустился!', 'uwu')
 
+    saves.testAllSaves()
 })
 
 client.on(Events.InteractionCreate, interaction => {

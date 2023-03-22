@@ -30,10 +30,10 @@ module.exports = function (line, type) {
             console.log(`${datetime}\x1b[44m\x1b[37mINFO\x1b[0m ${line}`)
         }; break;
         case "uwu": {
-            console.log(`${datetime}\x1b[45m\x1b[37m UwU\x1b[0m ${line}`)
+            console.log(`${datetime}\x1b[45m\x1b[37mUwU\x1b[0m ${line}`)
         }; break;
         case "owo": {
-            console.log(`${datetime}\x1b[45m\x1b[37m OWO\x1b[0m ${line}`)
+            console.log(`${datetime}\x1b[45m\x1b[37mOWO\x1b[0m ${line}`)
         }; break;
     }
 };
