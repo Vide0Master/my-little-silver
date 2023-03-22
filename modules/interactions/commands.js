@@ -28,7 +28,7 @@ class Commands {
             }
         }
         cLog(`Загруженные комманды: ${l_commands.l}`, 'i')
-        if (l_commands.e.length != 0) { cLog(`Не загружены комманды: ${l_commands.e}`, 'w') }
+        if (l_commands.e.length != 0) { cLog(`Не загружены комманды: ${l_commands.e}`, 'w') } 
 
         const coms = await client.application.commands.fetch()
         coms.forEach(element => {
