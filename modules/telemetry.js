@@ -10,10 +10,10 @@ class telemetry {
         }
         if (interaction.isCommand()) {
             let file = save.getSave(interaction.user.id, 'telemetry')
-            if (!eval(`file.commandsExecuted.${interaction.commandName} === \'undefined\'`)) {
+            if (!eval(`file.commandsExecuted.${interaction.commandName}`) === 'undefined') {
                 eval(`file.commandsExecuted.${interaction.commandName}=1`)
             } else {
-                eval(`file.commandsExecuted.${interaction.commandName}+=1`)
+                eval(`file.commandsExecuted.${interaction.commandName} += 1`)
             }
 
             save.setSave(interaction.user.id, 'telemetry', file)
