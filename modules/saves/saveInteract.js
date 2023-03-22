@@ -54,10 +54,10 @@ class saveInteraction {
         function updateNestedObjects(obj1, obj2) {
             for (let key in obj2) {
                 if (typeof obj2[key] === 'object') {
-                    if (typeof obj1[key] === 'undefined') {
+                    if (typeof obj1[key] === undefined) {
                         obj1[key] = {};
                     }
-                    if (typeof obj2[key] === 'undefined') {
+                    if (typeof obj2[key] === undefined) {
                         delete obj1[key];
                     }
                     updateNestedObjects(obj1[key], obj2[key]);
