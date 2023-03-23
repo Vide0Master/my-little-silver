@@ -44,31 +44,41 @@ class saveInteraction {
             let save = saveInteraction.getSave(sfolder, 'save')
             saveInteraction.updateObject(save, saveInteraction.save_template.save)
             saveInteraction.setSave(sfolder, 'save', save)
-            let telemetry = saveInteraction.getSave(sfolder, 'telemetry')
-            saveInteraction.updateObject(telemetry, saveInteraction.save_template.telemetry)
-            saveInteraction.setSave(sfolder, 'telemetry', telemetry)
         })
-        cLog(`Проверено ${saves.length} пользователей.`,'g')
+        cLog(`Проверено ${saves.length} пользователей.`, 'g')
     }
     static updateObject(obj1, obj2) {
         function updateNestedObjects(obj1, obj2) {
             for (let key in obj2) {
                 if (typeof obj2[key] === 'object') {
-                    if (typeof obj1[key] === undefined) {
+                    if (typeof obj1[key] === 'undefined') {
                         obj1[key] = {};
-                    }
-                    if (typeof obj2[key] === undefined) {
-                        delete obj1[key];
                     }
                     updateNestedObjects(obj1[key], obj2[key]);
                 } else {
-                    if(!obj1[key]){
+                    if (typeof obj1[key] === 'undefined') {
                         obj1[key] = obj2[key];
                     }
                 }
             }
         }
-
+        function deleteNestedObjects(obj1, obj2) {
+            for (let key in obj1) {
+                if (typeof obj1[key] === 'object') {
+                    if (typeof obj2[key] === 'undefined') {
+                        delete obj1[key];
+                    }
+                    else {
+                        deleteNestedObjects(obj1[key], obj2[key]);
+                    }
+                } else {
+                    if (typeof obj2[key] === 'undefined') {
+                        delete obj1[key];
+                    }
+                }
+            }
+        }
+        deleteNestedObjects(obj1, obj2);
         updateNestedObjects(obj1, obj2);
     }
 };

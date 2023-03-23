@@ -1,4 +1,5 @@
 {
     "ver":"v0.2.1",
-    "saveDB":"users_test"
+    "saveDB":"users_test",
+    "global_lang":"ru"
 }
