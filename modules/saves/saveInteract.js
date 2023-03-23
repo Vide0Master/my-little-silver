@@ -45,7 +45,7 @@ class saveInteraction {
             saveInteraction.updateObject(save, saveInteraction.save_template.save)
             saveInteraction.setSave(sfolder, 'save', save)
         })
-        cLog(`Проверено ${saves.length} пользователей.`, 'g')
+        cLog(`Проверено сохранений пользователей: ${saves.length}`, 'g')
     }
     static updateObject(obj1, obj2) {
         function updateNestedObjects(obj1, obj2) {

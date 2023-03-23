@@ -10,19 +10,19 @@ module.exports = function (client) {
         switch (Math.round(Math.random() * 2)) {
             case 0: {
                 client.user.setPresence({
-                    activities: [{ name: LI.returnRandomLineFrom('Status.playing',GLang), type: ActivityType.Playing }],
+                    activities: [{ name: LI.getRandomLine('Status.playing',GLang), type: ActivityType.Playing }],
                     status: 'online',
                 });
             }; break;
             case 1: {
                 client.user.setPresence({
-                    activities: [{ name: LI.returnRandomLineFrom('Status.watching',GLang), type: ActivityType.Watching }],
+                    activities: [{ name: LI.getRandomLine('Status.watching',GLang), type: ActivityType.Watching }],
                     status: 'idle',
                 });
             }; break;
             case 2: {
                 client.user.setPresence({
-                    activities: [{ name: LI.returnRandomLineFrom('Status.listening',GLang), type: ActivityType.Listening }],
+                    activities: [{ name: LI.getRandomLine('Status.listening',GLang), type: ActivityType.Listening }],
                     status: 'idle',
                 });
             }; break;

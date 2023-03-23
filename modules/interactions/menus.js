@@ -27,7 +27,7 @@ class Menus {
             }
         }
 
-        l_menus.l.length != 0 ? cLog(`Загруженные меню: ${l_menus.l}`, 'i') : {}
+        l_menus.l.length != 0 ? cLog(`Загруженные меню: ${l_menus.l}`, 'i') : cLog(`НИ ОДНОГО МЕНЮ НЕ БЫЛО ЗАГРУЖЕНО!`, 'e')
         l_menus.e.length != 0 ? cLog(`Не загружены меню: ${l_menus.e}`, 'i') : {}
     }
     static async menuExec(interaction) {

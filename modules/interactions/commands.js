@@ -27,7 +27,7 @@ class Commands {
                 l_commands.e.push(file)
             }
         }
-        l_commands.l.length != 0 ? cLog(`Загруженные комманды: ${l_commands.l}`, 'i') : {}
+        l_commands.l.length != 0 ? cLog(`Загруженные комманды: ${l_commands.l}`, 'i') : cLog(`НИ ОДНОЙ КОММАНДЫ НЕ БЫЛО ЗАГРУЖЕНО!`, 'e')
         l_commands.e.length != 0 ? cLog(`Не загружены комманды: ${l_commands.e}`, 'w') : {}
 
         const coms = await client.application.commands.fetch()
