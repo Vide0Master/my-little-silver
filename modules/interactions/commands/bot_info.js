@@ -4,6 +4,7 @@
 const { SlashCommandBuilder, EmbedBuilder} = require('discord.js');
 const inf = require('../../../config/techInfo.json')
 module.exports = {
+    settings:{active:true,public:false},
     command: new SlashCommandBuilder()
         .setName('bot_info')
         .setDescription('Узнайте информацию о боте!'),

@@ -8,6 +8,7 @@ const versionFiles = fs.readdirSync('config/versions').reverse()
 const current = JSON.parse(fs.readFileSync(`config/versions/${versionFiles[0]}`))
 
 module.exports = {
+    settings:{active:true,public:true},
     command: new SlashCommandBuilder()
         .setName('version')
         .setDescription('Узнайте информацию о последнем и предыдущих обновлениях Сильвер!'),
