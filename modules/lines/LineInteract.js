@@ -1,5 +1,5 @@
 
-//* Line interaction от VideoMaster
+//* Line interaction от Anirunahs & VideoMaster
 
 const fs = require('fs')
 const cLog = require('../consoleLogger')

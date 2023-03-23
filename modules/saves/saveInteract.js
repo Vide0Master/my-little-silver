@@ -1,5 +1,5 @@
 
-//* Save Interaction от VideoMaster
+//* Save Interaction от Anirunahs & VideoMaster
 
 const fs = require('fs');
 const cLog = require('../consoleLogger')
