@@ -11,10 +11,6 @@
         }
     },
     "telemetry": {
-        "commandsExecuted": {
-            "bot_info": 0,
-            "version": 0,
-            "example": 0
-        }
+        "commandsExecuted": {}
     }
 }
