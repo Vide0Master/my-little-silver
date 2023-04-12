@@ -1,6 +1,9 @@
 {
     "user": {
-        "settings": {}
+        "settings": {
+            "lang": "ru",
+            "lol":0
+        }
     },
     "save": {
         "Silver": {

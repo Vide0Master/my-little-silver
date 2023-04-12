@@ -1,0 +1,11 @@
+{
+    "system": {
+        "interactions": {
+            "language": {
+                "CL": "Choose language",
+                "NM": "English",
+                "CRL": "Chosen language"
+            }
+        }
+    }
+}
