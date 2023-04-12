@@ -57,7 +57,7 @@ class saveInteraction {
                     if (typeof obj1[key] === 'undefined') {
                         obj1[key] = obj2[key];
                     }
-                    if (Object.values(obj2)[0].length > 0) {
+                    if (Object.values(Object.values(obj2)[0]).length > 0) {
                         updateNestedObjects(obj1[key], obj2[key]);
                     }
                 } else {
@@ -73,8 +73,7 @@ class saveInteraction {
                     if (typeof obj2[key] === 'undefined') {
                         delete obj1[key];
                     }
-                    else if (Object.values(obj2)[0].length > 0) {
-                        console.log(Object.values(obj2)[0])
+                    else if (Object.values(Object.values(obj2)[0]).length > 0) {
                         deleteNestedObjects(obj1[key], obj2[key]);
                     }
                 } else {
