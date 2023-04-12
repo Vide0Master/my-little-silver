@@ -18,13 +18,25 @@ class LineInteract {
         fs.readdirSync('modules/lines/language').forEach(file=>{
             try{
                 require('./language/'+file)
-                l_lang.l.push(file)
+                l_lang.l.push(file.slice(0, -5))
             }catch{
-                l_lang.e.push(file)
+                l_lang.e.push(file.slice(0, -5))
             }
         })
         l_lang.l.length != 0 ? cLog(`Загруженные языки: ${l_lang.l}`, 'i') : cLog(`НЕ ОДНОГО ЯЗЫКА НЕ БЫЛО ЗАГРУЖЕНО!`, 'e')
         l_lang.e.length != 0 ? cLog(`Не загружены языки: ${l_lang.e}`, 'w') : {}
+    }
+    static getLangs(){
+        let l_lang={l:[],e:[]}
+        fs.readdirSync('modules/lines/language').forEach(file=>{
+            try{
+                require('./language/'+file)
+                l_lang.l.push(file.slice(0, -5))
+            }catch{
+                l_lang.e.push(file.slice(0, -5))
+            }
+        })
+        return l_lang
     }
 };
 module.exports = LineInteract;

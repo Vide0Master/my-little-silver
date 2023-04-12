@@ -1,4 +1,13 @@
 {
+    "system": {
+        "interactions": {
+            "language": {
+                "CL": "Выберите язык",
+                "NM": "русский",
+                "CRL": "Выбранный язык"
+            }
+        }
+    },
     "Status": {
         "watching": [
             "YouTube",

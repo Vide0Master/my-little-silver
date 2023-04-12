@@ -38,23 +38,28 @@ class saveInteraction {
     static testAllSaves() {
         const saves = fs.readdirSync(`${db}`)
         saves.forEach(sfolder => {
-            let user = saveInteraction.getSave(sfolder, 'user')
-            saveInteraction.updateObject(user, saveInteraction.save_template.user)
-            saveInteraction.setSave(sfolder, 'user', user)
-            let save = saveInteraction.getSave(sfolder, 'save')
-            saveInteraction.updateObject(save, saveInteraction.save_template.save)
-            saveInteraction.setSave(sfolder, 'save', save)
+            let user = this.getSave(sfolder, 'user')
+            this.fixObject(user, this.save_template.user)
+            this.setSave(sfolder, 'user', user)
+            let telemetry = this.getSave(sfolder, 'telemetry')
+            this.fixObject(telemetry, this.save_template.telemetry)
+            this.setSave(sfolder, 'telemetry', telemetry)
+            let save = this.getSave(sfolder, 'save')
+            this.fixObject(save, this.save_template.save)
+            this.setSave(sfolder, 'save', save)
         })
         cLog(`Проверено сохранений пользователей: ${saves.length}`, 'g')
     }
-    static updateObject(obj1, obj2) {
+    static fixObject(obj1, obj2) {
         function updateNestedObjects(obj1, obj2) {
             for (let key in obj2) {
                 if (typeof obj2[key] === 'object') {
                     if (typeof obj1[key] === 'undefined') {
-                        obj1[key] = {};
+                        obj1[key] = obj2[key];
                     }
-                    updateNestedObjects(obj1[key], obj2[key]);
+                    if (Object.values(Object.values(obj2)[0]).length > 0) {
+                        updateNestedObjects(obj1[key], obj2[key]);
+                    }
                 } else {
                     if (typeof obj1[key] === 'undefined') {
                         obj1[key] = obj2[key];
@@ -68,7 +73,7 @@ class saveInteraction {
                     if (typeof obj2[key] === 'undefined') {
                         delete obj1[key];
                     }
-                    else {
+                    else if (Object.values(Object.values(obj2)[0]).length > 0) {
                         deleteNestedObjects(obj1[key], obj2[key]);
                     }
                 } else {
