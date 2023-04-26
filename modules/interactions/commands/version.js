@@ -8,6 +8,7 @@ const versionFiles = fs.readdirSync('config/versions').reverse()
 const current = JSON.parse(fs.readFileSync(`config/versions/${versionFiles[0]}`))
 
 module.exports = {
+    settings:{active:true,public:true},
     command: new SlashCommandBuilder()
         .setName('version')
         .setDescription('Узнайте информацию о последнем и предыдущих обновлениях Сильвер!'),
@@ -25,14 +26,14 @@ module.exports = {
             embeds:
                 [new EmbedBuilder()
                     .setColor(0x0096c8)
-                    .setTitle(`Текущая версия v${current.ver}: ${current.title}`)
+                    .setTitle(`Последняя версия v${current.ver} | ${current.title}`)
                     .setDescription(current.description)
                 ],
             components:
                 [new ActionRowBuilder()
                     .addComponents(
                         new StringSelectMenuBuilder()
-                            .setCustomId('version')
+                            .setCustomId('version_menu')
                             .setPlaceholder('Выберите версию для просмотра')
                             .addOptions(vers)
                     )

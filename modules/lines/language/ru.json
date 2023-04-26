@@ -1,0 +1,31 @@
+{
+    "system": {
+        "interactions": {
+            "language": {
+                "CL": "Выберите язык",
+                "NM": "русский",
+                "CRL": "Выбранный язык"
+            }
+        }
+    },
+    "Status": {
+        "watching": [
+            "YouTube",
+            "за птицами",
+            "в окно",
+            "в холодильник"
+        ],
+        "playing": [
+            "Minecraft",
+            "Pokémon",
+            "Metal Gear Rising: Revengeance",
+            "GTA 5",
+            "COD:MW2"
+        ],
+        "listening": [
+            "шум ветра",
+            "Spotify",
+            "шум города"
+        ]
+    }
+}

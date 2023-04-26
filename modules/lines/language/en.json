@@ -1,0 +1,31 @@
+{
+    "system": {
+        "interactions": {
+            "language": {
+                "CL": "Choose language",
+                "NM": "English",
+                "CRL": "Chosen language"
+            }
+        }
+    },
+    "Status": {
+        "watching": [
+            "YouTube",
+            "at birds",
+            "in window",
+            "in freezer"
+        ],
+        "playing": [
+            "Minecraft",
+            "Pokémon",
+            "Metal Gear Rising: Revengeance",
+            "GTA 5",
+            "COD:MW2"
+        ],
+        "listening": [
+            "to whispers of wind",
+            "Spotify",
+            "to city noise"
+        ]
+    }
+}

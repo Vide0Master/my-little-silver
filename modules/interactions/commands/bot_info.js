@@ -4,8 +4,9 @@
 const { SlashCommandBuilder, EmbedBuilder} = require('discord.js');
 const inf = require('../../../config/techInfo.json')
 module.exports = {
+    settings:{active:true,public:true},
     command: new SlashCommandBuilder()
-        .setName('bot-info')
+        .setName('bot_info')
         .setDescription('Узнайте информацию о боте!'),
     async execute(interaction) {
         await interaction.reply({
@@ -14,7 +15,7 @@ module.exports = {
                     .setColor(0xFF0000)
                     .setTitle('Информация про бота My little Silver')
                     .setDescription('...')
-                    .setFooter({ text: inf.ver })
+                    .setFooter({ text: "v"+inf.ver })
                 ]
         })
     }
