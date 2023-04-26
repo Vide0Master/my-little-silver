@@ -1,7 +1,7 @@
 
 //* Status от VideoMaster
 
-const LI = require('./lines/LineInteract')
+const LI = require('./lines/lineInteract')
 const { ActivityType } = require('discord.js')
 const GLang = require('../config/techInfo.json').global_lang
 

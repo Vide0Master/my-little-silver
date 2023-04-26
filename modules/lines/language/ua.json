@@ -1,11 +1,35 @@
 {
     "system": {
         "interactions": {
+            "interaction_err":{
+                "DM_call":"Цю команду можна викликати тільки у ЛС з ботом.",
+                "CMND_err":"Сталася помилка обробки команди, повідомте разробнику як наймога швидше!"
+            },
             "language": {
                 "CL": "Оберіть мову",
                 "NM": "Українська",
                 "CRL": "Вибрана мова"
             }
         }
+    },
+    "Status": {
+        "watching": [
+            "YouTube",
+            "за пташками",
+            "у вікно",
+            "в холодильник"
+        ],
+        "playing": [
+            "Minecraft",
+            "Pokémon",
+            "Metal Gear Rising: Revengeance",
+            "GTA 5",
+            "COD:MW2"
+        ],
+        "listening": [
+            "шепіт вітру",
+            "Spotify",
+            "шум міста"
+        ]
     }
 }

@@ -5,8 +5,8 @@ const { Collection } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
 const cLog = require('../consoleLogger')
-
-
+const LI = require('../lines/lineInteract')
+const SI = require('../saves/saveInteract')
 
 class Commands {
     static async updateCommands(client) {
@@ -44,16 +44,18 @@ class Commands {
             cLog(`Комманда ${interaction.commandName} не найдена!`, 'e')
             return;
         }
-
+        const sav = SI.getSave(interaction.user.id, "user")
+        LI.getLine("system.interactions.interaction_err.CMND_err",sav.settings.lang)
+        
         try {
             if (interaction.inGuild() && !command.settings.public) {
-                interaction.reply({ content: 'Эту команду нужно выполнить в личном чате с ботом.', ephemeral: true })
+                interaction.reply({ content: LI.getLine("system.interactions.interaction_err.DM_call",sav.settings.lang), ephemeral: true })
             } else {
                 await command.execute(interaction);
             }
         } catch (error) {
             cLog(`Произошла непредвиденная ошибка [${error}] в комманде [${interaction.commandName}]!`, 'e')
-            await interaction.reply({ content: 'Произошла ошибка обработки комманды, сообщите об этом разработчику!', ephemeral: true });
+            await interaction.reply({ content: LI.getLine("system.interactions.interaction_err.CMND_err",sav.settings.lang), ephemeral: true });
         }
     }
 }

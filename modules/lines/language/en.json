@@ -1,6 +1,10 @@
 {
     "system": {
         "interactions": {
+            "interaction_err":{
+                "DM_call":"This command should be exetuted in DM with bot.",
+                "CMND_err":"Command error occured, contact developer ASAP!"
+            },
             "language": {
                 "CL": "Choose language",
                 "NM": "English",

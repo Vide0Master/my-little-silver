@@ -4,7 +4,7 @@
 const fs = require('node:fs');
 const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
 const SI = require('../../saves/saveInteract.js')
-const LI = require('../../lines/LineInteract.js')
+const LI = require('../../lines/lineInteract.js')
 
 module.exports = {
     async execute(interaction) {
@@ -26,12 +26,18 @@ module.exports = {
             })
         })
 
+        let ru_warn=new EmbedBuilder().setColor(0xff0000).setTitle('ВНИМАНИЕ').setDescription('Ваш выбранный язык русский!\nВсе разработчики игры - украинцы, добавлять в игру русский язык было сложным решением, но всё же мы предоставляем сервис русским игрокам\nГлавный разработчик чуть более лоялен к россиянам, второй разработчик не очень, учтите это.\n\nПредупреждение!\nИграя в эту игру вы можете коственным путём предоставлять данные Службе безопасности Украины, Главному управлению разведки Министерства обороны Украины, а так же Вооружённым силам Украины.\n')
+        let embd=new EmbedBuilder().setColor(0x0096c8).setTitle(`${lng_lines.CRL}: ${lng_lines.NM}`)
+        let ready_embed
+        if(user_lang=='ru'){
+            ready_embed=[ru_warn,embd]
+        }else{
+            ready_embed=[embd]
+        }
+
         interaction.update({
             embeds:
-                [new EmbedBuilder()
-                    .setColor(0x0096c8)
-                    .setTitle(`${lng_lines.CRL}: ${lng_lines.NM}`)
-                ],
+                ready_embed,
             components:
                 [new ActionRowBuilder()
                     .addComponents(

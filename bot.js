@@ -7,7 +7,8 @@ const commands = require('./modules/interactions/commands.js')
 const menus = require('./modules/interactions/menus.js')
 const telemetry = require('./modules/telemetry.js')
 const saves = require('./modules/saves/saveInteract.js')
-const line_int = require('./modules/lines/LineInteract')
+const LI = require('./modules/lines/lineInteract')
+
 //* подключение библиотек
 const { Client, GatewayIntentBits, Events } = require('discord.js');
 
@@ -48,7 +49,7 @@ client.on('ready', () => {
 
     saves.testAllSaves()
 
-    line_int.testAllLanguages()
+    LI.testAllLanguages()
 
     cLog('Я запустился!', 'uwu')
 })
