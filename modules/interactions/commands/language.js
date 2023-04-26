@@ -2,7 +2,7 @@
 //* language от VideoMaster
 
 const { SlashCommandBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
-const LI = require('../../lines/LineInteract.js')
+const LI = require('../../lines/lineInteract.js')
 const SI = require('../../saves/saveInteract.js')
 
 module.exports = {

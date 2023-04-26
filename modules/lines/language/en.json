@@ -9,6 +9,9 @@
                 "CL": "Choose language",
                 "NM": "English",
                 "CRL": "Chosen language"
+            },
+            "bot_info":{
+                "head":"Silver bot info"
             }
         }
     },

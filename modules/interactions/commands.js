@@ -39,23 +39,21 @@ class Commands {
     }
     static async commandExec(interaction) {
         const command = interaction.client.commands.get(interaction.commandName);
-
+        const lpack=LI.getLine("system.interactions.interaction_err",SI.getSave(interaction.user.id, "user").settings.lang)
         if (!command) {
             cLog(`Комманда ${interaction.commandName} не найдена!`, 'e')
             return;
         }
-        const sav = SI.getSave(interaction.user.id, "user")
-        LI.getLine("system.interactions.interaction_err.CMND_err",sav.settings.lang)
         
         try {
             if (interaction.inGuild() && !command.settings.public) {
-                interaction.reply({ content: LI.getLine("system.interactions.interaction_err.DM_call",sav.settings.lang), ephemeral: true })
+                interaction.reply({ content: lpack.DM_call, ephemeral: true })
             } else {
                 await command.execute(interaction);
             }
         } catch (error) {
             cLog(`Произошла непредвиденная ошибка [${error}] в комманде [${interaction.commandName}]!`, 'e')
-            await interaction.reply({ content: LI.getLine("system.interactions.interaction_err.CMND_err",sav.settings.lang), ephemeral: true });
+            await interaction.reply({ content: lpack.CMND_err, ephemeral: true });
         }
     }
 }
