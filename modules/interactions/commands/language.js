@@ -9,7 +9,7 @@ module.exports = {
     settings: { active: true, public: false },
     command: new SlashCommandBuilder()
         .setName('language')
-        .setDescription('Выбор языка'),
+        .setDescription('Language select.'),
     async execute(interaction) {
         const user_lang = SI.getSave(interaction.user.id, "user").settings.lang
         let languages = []

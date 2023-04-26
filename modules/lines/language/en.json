@@ -12,6 +12,10 @@
             },
             "bot_info":{
                 "head":"Silver bot info"
+            },
+            "version_menu":{
+                "last_ver":"Last version",
+                "ver_sel":"Select version for view"
             }
         }
     },

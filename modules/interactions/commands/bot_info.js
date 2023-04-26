@@ -10,7 +10,7 @@ module.exports = {
     settings:{active:true,public:true},
     command: new SlashCommandBuilder()
         .setName('bot_info')
-        .setDescription('Узнайте информацию о боте!'),
+        .setDescription('Get info about bot.'),
     async execute(interaction) {
         const lpack = LI.getLine("system.interactions.bot_info",SI.getSave(interaction.user.id, "user").settings.lang)
         await interaction.reply({

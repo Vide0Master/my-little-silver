@@ -6,13 +6,16 @@ const inf = require('../../../config/techInfo.json')
 const fs = require('node:fs');
 const versionFiles = fs.readdirSync('config/versions').reverse()
 const current = JSON.parse(fs.readFileSync(`config/versions/${versionFiles[0]}`))
+const LI = require('../../lines/lineInteract.js')
+const SI = require('../../saves/saveInteract.js')
 
 module.exports = {
-    settings:{active:true,public:true},
+    settings: { active: true, public: true },
     command: new SlashCommandBuilder()
         .setName('version')
-        .setDescription('Узнайте информацию о последнем и предыдущих обновлениях Сильвер!'),
+        .setDescription('Get info about Silver current and older versions.'),
     async execute(interaction) {
+        const lpack = LI.getLine("system.interactions.version_menu", SI.getSave(interaction.user.id, "user").settings.lang)
         let vers = [];
         versionFiles.forEach((file) => {
             const aver = JSON.parse(fs.readFileSync(`config/versions/${file}`))
@@ -26,7 +29,7 @@ module.exports = {
             embeds:
                 [new EmbedBuilder()
                     .setColor(0x0096c8)
-                    .setTitle(`Последняя версия v${current.ver} | ${current.title}`)
+                    .setTitle(`${lpack.last_ver} v${current.ver} | ${current.title}`)
                     .setDescription(current.description)
                 ],
             components:
@@ -34,7 +37,7 @@ module.exports = {
                     .addComponents(
                         new StringSelectMenuBuilder()
                             .setCustomId('version_menu')
-                            .setPlaceholder('Выберите версию для просмотра')
+                            .setPlaceholder(lpack.ver_sel)
                             .addOptions(vers)
                     )
                 ]
