@@ -69,7 +69,6 @@ class saveInteraction {
                 }
             }
         }
-
         function deleteNestedObjects(obj1, obj2) {
             for (let key in obj1) {
                 if (typeof obj1[key] === 'object') {
@@ -86,7 +85,6 @@ class saveInteraction {
                 }
             }
         }
-
         deleteNestedObjects(obj1, obj2);
         updateNestedObjects(obj1, obj2);
     }
