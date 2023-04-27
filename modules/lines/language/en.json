@@ -1,6 +1,9 @@
 {
     "system": {
         "interactions": {
+            "exapmle":{
+                "ER":"exapmle response!"
+            },
             "interaction_err":{
                 "DM_call":"This command should be exetuted in DM with bot.",
                 "CMND_err":"Command error occured, contact developer ASAP!"
@@ -16,6 +19,15 @@
             "version_menu":{
                 "last_ver":"Last version",
                 "ver_sel":"Select version for view"
+            },
+            "extended_info":{
+                "types":[
+                    "nothing",
+                    "only necessary info",
+                    "full info"
+                ],
+                "PH_menu":"Choose one",
+                "cur_disp":"Extended info currently displaying"
             }
         }
     },

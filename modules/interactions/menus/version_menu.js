@@ -1,3 +1,6 @@
+
+//* version menu от VideoMaster
+
 const fs = require('node:fs');
 const { EmbedBuilder } = require('discord.js');
 
