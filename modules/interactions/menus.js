@@ -21,9 +21,9 @@ class Menus {
             const menuF = require(filePath);
             if ('execute' in menuF) {
                 client.menus.set(file.slice(0, -3), menuF);
-                l_menus.l.push(file)
+                l_menus.l.push(file.slice(0, -3))
             } else {
-                l_menus.e.push(file)
+                l_menus.e.push(file.slice(0, -3))
             }
         }
 

@@ -28,6 +28,15 @@
                 ],
                 "PH_menu":"Choose one",
                 "cur_disp":"Extended info currently displaying"
+            },
+            "silver_stats":{
+                "base_stats":{
+                    "health": "Health",
+                    "hunger": "Hunger",
+                    "dirt": "Dirt",
+                    "mood": "Mood"
+                },
+                "s_stats":"Silver stats"
             }
         }
     },

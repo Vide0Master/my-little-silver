@@ -22,9 +22,9 @@ class Commands {
             if ('command' in commandF && 'execute' in commandF && 'settings' in commandF && commandF.settings.active) {
                 client.commands.set(commandF.command.name, commandF);
                 client.application.commands.create(commandF.command)
-                l_commands.l.push(file)
+                l_commands.l.push(file.slice(0, -3))
             } else {
-                l_commands.e.push(file)
+                l_commands.e.push(file.slice(0, -3))
             }
         }
         l_commands.l.length != 0 ? cLog(`Загруженные комманды: ${l_commands.l}`, 'i') : cLog(`НИ ОДНОЙ КОММАНДЫ НЕ БЫЛО ЗАГРУЖЕНО!`, 'e')
