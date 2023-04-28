@@ -33,8 +33,5 @@ module.exports = function (interaction) {
         }
         sav.Silver.LIT = Date.now()
         SI.setSave(interaction.user.id, "save", sav)
-    } else {
-        sav.Silver.LIT = Date.now()
-        SI.setSave(interaction.user.id, "save", sav)
     }
 };
