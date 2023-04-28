@@ -12,7 +12,7 @@ function decreaseStat(stat, inc) {
 module.exports = function (interaction) {
     let sav = SI.getSave(interaction.user.id, "save")
     const tm = Math.floor(((Date.now()-sav.Silver.LIT)/1000/60))
-    if (tm>5) {
+    if (tm>5 && sav.Silver.LIT!=0) {
         for (let val in sav.Silver.base_stats) {
             for (let i = 0; i < tm; i++) {
                 switch (val) {
@@ -31,6 +31,10 @@ module.exports = function (interaction) {
                 }
             }
         }
+        sav.Silver.LIT = Date.now()
+        SI.setSave(interaction.user.id, "save", sav)
+    }
+    if(sav.Silver.LIT!=0){
         sav.Silver.LIT = Date.now()
         SI.setSave(interaction.user.id, "save", sav)
     }

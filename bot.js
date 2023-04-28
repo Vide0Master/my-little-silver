@@ -1,7 +1,6 @@
 //? MY LITTLE SILVER, тамагочи бот, от VideoMaster
 
 //* подключение ключевых сис. модулей
-//const testbed = require('./modules/TEMPLATE');
 const cLog = require('./modules/consoleLogger')
 const commands = require('./modules/interactions/commands.js')
 const menus = require('./modules/interactions/menus.js')
