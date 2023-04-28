@@ -1,0 +1,14 @@
+{
+    "increments": {
+        "health": 20,
+        "hunger": 30,
+        "dirt": 100,
+        "mood": 5
+    },
+    "decrements": {
+        "health": 0.0001,
+        "hunger": 0.15,
+        "dirt": 0.05,
+        "mood": 0.001
+    }
+}

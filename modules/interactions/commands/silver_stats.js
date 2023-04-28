@@ -12,19 +12,24 @@ module.exports = {
         .setName('silver_stats')
         .setDescription('Get our Silver stats.'),
     async execute(interaction) {
-        let save = SI.getSave(interaction.user.id, "save")
+        const save = SI.getSave(interaction.user.id, "save").Silver
+        let settings = SI.getSave(interaction.user.id, "user").settings
         const lpack = LI.getLine("system.interactions.silver_stats", SI.getSave(interaction.user.id, "user").settings.lang)
         
-        let glos=""
-        for(let stat in save.Silver.base_stats) {
-            glos+=`${lpack.base_stats[stat]}\n${BC(save.Silver.base_stats[stat], 100, 12)}\n\n`
+        let glos = ""
+        for (let stat in save.base_stats) {
+            if (settings.extended_info >= 1) {
+                glos += `${lpack.base_stats[stat]} | (${save.base_stats[stat]}/100)\n${BC(save.base_stats[stat], 100, 12)}\n\n`
+            } else {
+                glos += `${lpack.base_stats[stat]}\n${BC(save.base_stats[stat], 100, 12)}\n\n`
+            }
         }
 
         await interaction.reply({
             embeds: [
                 new EmbedBuilder()
-                .setTitle(lpack.s_stats)
-                .setDescription(glos)
+                    .setTitle(lpack.s_stats)
+                    .setDescription(glos)
             ]
         });
     }

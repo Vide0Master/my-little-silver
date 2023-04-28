@@ -20,7 +20,7 @@ class saveInteraction {
             fs.mkdirSync(`${db}/${id}`)
             const user = this.save_template.user
             fs.writeFileSync(`${db}/${id}/user.json`, JSON.stringify(user))
-            const telemetry = this.save_template.telemetry
+            const telemetry = this.save_template.telemetry 
             fs.writeFileSync(`${db}/${id}/telemetry.json`, JSON.stringify(telemetry))
             const save = this.save_template.save
             fs.writeFileSync(`${db}/${id}/save.json`, JSON.stringify(save))

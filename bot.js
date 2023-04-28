@@ -8,6 +8,7 @@ const menus = require('./modules/interactions/menus.js')
 const telemetry = require('./modules/telemetry.js')
 const saves = require('./modules/saves/saveInteract.js')
 const LI = require('./modules/lines/lineInteract')
+const TC = require('./modules/time_calculator')
 
 //* подключение библиотек
 const { Client, GatewayIntentBits, Events } = require('discord.js');
@@ -56,6 +57,9 @@ client.on('ready', () => {
 
 client.on(Events.InteractionCreate, interaction => {
     telemetry.updateTelemetry(interaction)
+    if(saves.testForUser(interaction.user.id)){
+        TC(interaction)
+    }
     if (interaction.isCommand()) commands.commandExec(interaction);
     if (interaction.isStringSelectMenu()) menus.menuExec(interaction);
 });

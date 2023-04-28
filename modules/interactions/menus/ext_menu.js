@@ -1,7 +1,6 @@
 
 //* version menu от VideoMaster
 
-const fs = require('node:fs');
 const { EmbedBuilder } = require('discord.js');
 const SI = require('../../saves/saveInteract')
 const LI = require('../../lines/lineInteract')

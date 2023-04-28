@@ -37,6 +37,21 @@
                     "mood": "Mood"
                 },
                 "s_stats":"Silver stats"
+            },
+            "silver_interact":{
+                "PH_menu":"Interact...",
+                "stat_interactions":{
+                    "health": "Heal",
+                    "hunger": "Feed",
+                    "dirt": "Wash",
+                    "mood": "Stroke"
+                },
+                "interacted":{
+                    "health": "Silver was healed",
+                    "hunger": "Silver was fed",
+                    "dirt": "Silver was washed",
+                    "mood": "Silver was stroked"
+                }
             }
         }
     },
