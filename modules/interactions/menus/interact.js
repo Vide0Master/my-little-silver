@@ -24,7 +24,7 @@ module.exports = {
             case "hunger": {
                 save.Silver.base_stats.hunger = increaseStat(save.Silver.base_stats.hunger, increments.hunger).toFixed(3)
                 save.Silver.base_stats.mood = increaseStat(save.Silver.base_stats.mood, 10).toFixed(3)
-                save.Silver.base_stats.dirt = increaseStat(save.Silver.base_stats.dirt, 5).toFixed(3)
+                save.Silver.base_stats.dirt = increaseStat(save.Silver.base_stats.dirt, -5).toFixed(3)
             }; break;
             case "dirt": {
                 save.Silver.base_stats.dirt = increaseStat(save.Silver.base_stats.dirt, increments.dirt).toFixed(3)
