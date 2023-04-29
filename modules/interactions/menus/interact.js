@@ -34,7 +34,6 @@ module.exports = {
                 save.Silver.base_stats.mood = increaseStat(save.Silver.base_stats.mood, increments.mood).toFixed(3)
             }; break;
         }
-        console.log(increaseStat(save.Silver.base_stats.health, increments.health).toFixed(3))
         SI.setSave(interaction.user.id, "save", save)
 
         const lpack = LI.getLine("system.interactions.silver_interact", SI.getSave(interaction.user.id, "user").settings.lang)
