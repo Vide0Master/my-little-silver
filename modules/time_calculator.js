@@ -3,7 +3,7 @@
 
 const SI = require('./saves/saveInteract')
 const decrements = require('../config/Silver_values.json').decrements
-const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
+const clamp = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));
 
 function decreaseStat(stat, inc) {
     return clamp(stat - inc, 0, 100)
@@ -34,7 +34,7 @@ module.exports = function (interaction) {
         sav.Silver.LIT = Date.now()
         SI.setSave(interaction.user.id, "save", sav)
     }
-    if(sav.Silver.LIT!=0){
+    if(sav.Silver.LIT==""){
         sav.Silver.LIT = Date.now()
         SI.setSave(interaction.user.id, "save", sav)
     }
