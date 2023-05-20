@@ -20,8 +20,7 @@ module.exports = {
         versionFiles.forEach((file) => {
             const aver = JSON.parse(fs.readFileSync(`config/versions/${file}`))
             vers.push({
-                label: aver.ver,
-                description: aver.description,
+                label: `${aver.ver} - ${aver.title}`,
                 value: file
             })
         })
