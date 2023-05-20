@@ -45,8 +45,9 @@ module.exports = {
         } else {
             info = `${slpack.base_stats[stat]}\n${BC(save.Silver.base_stats[stat], 100, 12)}`
         }
-
+        const line=LI.getRandomLine(`system.lines.interactions.silver_stats.${stat}`,SI.getSave(interaction.user.id, "user").settings.lang)
         interaction.update({
+            content:line,
             embeds:
                 [new EmbedBuilder()
                     .setTitle(`${lpack.interacted[stat]}`)
