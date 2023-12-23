@@ -24,5 +24,5 @@ class telemetry {
 
     }
 }
-
 module.exports = telemetry
+//* переработать всю блять телеметрию...

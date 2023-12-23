@@ -1,6 +1,7 @@
 
 //* Commands от VideoMaster
 
+//* подключение библиотеки
 const { Collection } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -9,6 +10,7 @@ const LI = require('../lines/lineInteract')
 const SI = require('../saves/saveInteract')
 
 class Commands {
+    //* обновить комманды бота
     static async updateCommands(client) {
         client.commands = new Collection();
 
@@ -37,6 +39,7 @@ class Commands {
             }
         });
     }
+    //* исполнить комманду
     static async commandExec(interaction) {
         const command = interaction.client.commands.get(interaction.commandName);
         const lpack = LI.getLine("system.interactions.interaction_err", SI.getSave(interaction.user.id, "user").settings.lang)

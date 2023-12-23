@@ -1,14 +1,14 @@
 
 //* Menus от Anirunahs
 
+//* подключение библиотек
 const { Collection } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
 const cLog = require('../consoleLogger')
 
-
-
 class Menus {
+    //* регистарция менюшок бота, проверяя их доступность для применения, и правильность файла на предмет ошибок
     static async registerMenus(client) {
         client.menus = new Collection();
 
@@ -30,6 +30,7 @@ class Menus {
         l_menus.l.length != 0 ? cLog(`Загруженные меню: ${l_menus.l}`, 'i') : cLog(`НИ ОДНОГО МЕНЮ НЕ БЫЛО ЗАГРУЖЕНО!`, 'e')
         l_menus.e.length != 0 ? cLog(`Не загружены меню: ${l_menus.e}`, 'i') : {}
     }
+    //* вызов обработки меню
     static async menuExec(interaction) {
         const menu = interaction.client.menus.get(interaction.customId);
 

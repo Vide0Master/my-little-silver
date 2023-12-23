@@ -1,11 +1,13 @@
 
 //* Status от VideoMaster
 
+//* получить функции и язык для строк
 const LI = require('./lines/lineInteract')
 const { ActivityType } = require('discord.js')
 const GLang = require('../config/techInfo.json').global_lang
 
 module.exports = function (client) {
+    //* каждых 10 минут выполняем рандомное изменение статуса на играет, смотрит или слушает, приставляя что-то из на основе языкового файла
     setInterval(() => {
         switch (Math.round(Math.random() * 2)) {
             case 0: {

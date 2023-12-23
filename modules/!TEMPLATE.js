@@ -7,3 +7,5 @@ class template {
     }
 };
 module.exports = template;
+
+//! ТЕМПЛЕЙТ
