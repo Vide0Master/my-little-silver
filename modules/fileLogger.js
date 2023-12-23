@@ -7,6 +7,9 @@ let strgs=["Ну и что мы сломали на этот раз?", "Что-�
 
 class fileLogger {
     static createFile() {
+        if (!fs.existsSync("./logs")) {
+            fs.mkdirSync("./logs");
+        }
         let currentdate = new Date();
         let datetime = currentdate.getDate() + "."
             + (currentdate.getMonth() + 1) + "."
