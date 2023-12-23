@@ -8,6 +8,7 @@ const telemetry = require('./modules/telemetry.js')
 const saves = require('./modules/saves/saveInteract.js')
 const LI = require('./modules/lines/lineInteract')
 const TC = require('./modules/time_calculator')
+const flog = require('./modules/fileLogger.js')
 
 //* подключение библиотек
 const { Client, GatewayIntentBits, Events } = require('discord.js');
@@ -27,23 +28,24 @@ client.login(require('./config/token.json'));
 
 //* действия бота по готовности
 client.on('ready', () => {
+    flog.createFile()
     cLog(`Произвёл авторизацию как ${client.user.tag}!`, 'i');
     //* попытка запуска модуля статуса
     try {
         require('./modules/Status')(client)
-        cLog(`Модуль статуса успешно запущен!`, 'g')
+        cLog(`Модуль статуса успешно запущен!`, 's')
     }
     catch (err) { cLog(`Ошибка модуля статуса!\n[${err}]`, 'e') }
 
     try {
         commands.updateCommands(client)
-        cLog(`Модуль комманд успешно запущен!`, 'g')
+        cLog(`Модуль комманд успешно запущен!`, 's')
     }
     catch (err) { cLog(`Ошибка модуля комманд!\n[${err}]`, 'e') }
 
     try {
         menus.registerMenus(client)
-        cLog(`Модуль меню успешно запущен!`, 'g')
+        cLog(`Модуль меню успешно запущен!`, 's')
     }
     catch (err) { cLog(`Ошибка модуля комманд!\n[${err}]`, 'e') }
 

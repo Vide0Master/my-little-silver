@@ -56,7 +56,7 @@ class saveInteraction {
             this.fixObject(save, this.save_template.save)
             this.setSave(sfolder, 'save', save)
         })
-        cLog(`Проверено сохранений пользователей: ${saves.length}`, 'g')
+        cLog(`Проверено сохранений пользователей: ${saves.length}`, 's')
     }
     //* алгоритм исправления файла сохранения
     static fixObject(obj1, obj2) {

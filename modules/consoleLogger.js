@@ -1,6 +1,8 @@
 
 //* console logger от VideoMaster
 
+//* добавляем библиотеку логгера в файл
+const flog=require("./fileLogger.js")
 
 module.exports = function (line, type) {
     //* формируем строку даты
@@ -11,37 +13,40 @@ module.exports = function (line, type) {
         + currentdate.getHours() + ":"
         + currentdate.getMinutes() + ":"
         + currentdate.getSeconds();
-
+    let NDT=datetime
     datetime = `\x1b[46m${datetime}\x1b[0m `
 
+    let text = ""
     switch (type) {
         default: {
             //* просто вывод в консоль с таймстэмпом
-            console.log(`${datetime}\x1b[0m${line}\x1b[0m`)
+            text =`${datetime}\x1b[0m${line}\x1b[0m`
         }; break;
         case "e": {
             //* вывод ошибки
-            console.log(`${datetime}\x1b[41m\x1b[37mERR\x1b[0m ${line}`)
+            text =`${datetime}\x1b[41m\x1b[37mERR\x1b[0m ${line}`
         }; break;
-        case "g": {
-            //* вывод хорошего состояни
-            console.log(`${datetime}\x1b[42m\x1b[37mGOOD\x1b[0m ${line}`)
+        case "s": {
+            //* успех
+            text =`${datetime}\x1b[42m\x1b[37mSUCC\x1b[0m ${line}`
         }; break;
         case "w": {
             //* предупреждение
-            console.log(`${datetime}\x1b[43m\x1b[37mWARN\x1b[0m ${line}`)
+            text =`${datetime}\x1b[43m\x1b[37mWARN\x1b[0m ${line}`
         }; break;
         case "i": {
             //* информация
-            console.log(`${datetime}\x1b[44m\x1b[37mINFO\x1b[0m ${line}`)
+            text =`${datetime}\x1b[44m\x1b[37mINFO\x1b[0m ${line}`
         }; break;
         case "uwu": {
             //? UWU
-            console.log(`${datetime}\x1b[45m\x1b[37mUwU\x1b[0m ${line}`)
+            text =`${datetime}\x1b[45m\x1b[37mUwU\x1b[0m ${line}`
         }; break;
         case "owo": {
             //? OWO
-            console.log(`${datetime}\x1b[45m\x1b[37mOWO\x1b[0m ${line}`)
+            text =`${datetime}\x1b[45m\x1b[37mOWO\x1b[0m ${line}`
         }; break;
     }
+    console.log(text);
+    flog.writeFile(`[${NDT}] [${type}] [${line}]`)
 };
