@@ -56,9 +56,12 @@ client.on('ready', () => {
 
     DC.start()
 
+    cLog(flog.get_log_info(),'i')
+
     cLog('Я запустился!', 'uwu')
 
-    require('./modules/saves/migration_modules/0.2.3.js')('304287796225376256 — копия')
+    //const VM=require('./modules/saves/version_modules/0.2.3.js')
+    //VM.update_SF('304287796225376256')
 })
 
 client.on(Events.InteractionCreate, interaction => {

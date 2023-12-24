@@ -2,6 +2,7 @@
 //* File Logger от VideoMaster
 
 const fs = require('fs');
+const cLog = require('./consoleLogger')
 let file = ""
 let strgs = [
     "Ну и что мы сломали на этот раз?",
@@ -29,10 +30,13 @@ class fileLogger {
             + currentdate.getMinutes() + "."
             + currentdate.getSeconds();
         file = `log-[${datetime}].txt`
-        fs.appendFileSync(`./logs/${file}`, `Лог консоли за [${datetime}]\n\n"${strgs[Math.round(Math.random() * strgs.length)]}"\n\n`)
+        fs.appendFileSync(`./logs/${file}`, `Лог консоли за [${datetime}]\n\n"${strgs[Math.round(Math.random() * strgs.length)-1]}"\n\n`)
     }
     static writeFile(data) {
         fs.appendFileSync(`./logs/${file}`, `${data}\n`)
+    }
+    static get_log_info(){
+        return `Файловый лог консоли доступен в файле "${file}" в папке logs, всего лог-файлов:${fs.readdirSync('./logs').length}`
     }
 };
 module.exports = fileLogger;
