@@ -2,7 +2,6 @@
 //* File Logger от VideoMaster
 
 const fs = require('fs');
-const cLog = require('./consoleLogger')
 let file = ""
 let strgs = [
     "Ну и что мы сломали на этот раз?",

@@ -21,30 +21,37 @@ module.exports = function (line, type) {
         default: {
             //* просто вывод в консоль с таймстэмпом
             text =`${datetime}\x1b[0m${line}\x1b[0m`
+            type="none"
         }; break;
         case "e": {
             //* вывод ошибки
             text =`${datetime}\x1b[41m\x1b[37mERR\x1b[0m ${line}`
+            type="ERROR"
         }; break;
         case "s": {
             //* успех
             text =`${datetime}\x1b[42m\x1b[37mSUCC\x1b[0m ${line}`
+            type="SUCCES"
         }; break;
         case "w": {
             //* предупреждение
             text =`${datetime}\x1b[43m\x1b[37mWARN\x1b[0m ${line}`
+            type="WARNING"
         }; break;
         case "i": {
             //* информация
             text =`${datetime}\x1b[44m\x1b[37mINFO\x1b[0m ${line}`
+            type="INFO"
         }; break;
         case "uwu": {
             //? UWU
             text =`${datetime}\x1b[45m\x1b[37mUwU\x1b[0m ${line}`
+            type="UWU"
         }; break;
         case "owo": {
             //? OWO
             text =`${datetime}\x1b[45m\x1b[37mOWO\x1b[0m ${line}`
+            type="OWO"
         }; break;
     }
     console.log(text);
