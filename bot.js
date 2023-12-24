@@ -57,6 +57,8 @@ client.on('ready', () => {
     DC.start()
 
     cLog('Я запустился!', 'uwu')
+
+    require('./modules/saves/migration_modules/0.2.3.js')('304287796225376256 — копия')
 })
 
 client.on(Events.InteractionCreate, interaction => {
