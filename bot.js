@@ -9,6 +9,7 @@ const saves = require('./modules/saves/saveInteract.js')
 const LI = require('./modules/lines/lineInteract')
 const TC = require('./modules/time_calculator')
 const flog = require('./modules/fileLogger.js')
+const DC = require('./modules/data_collector.js')
 
 //* подключение библиотек
 const { Client, GatewayIntentBits, Events } = require('discord.js');
@@ -53,11 +54,15 @@ client.on('ready', () => {
 
     LI.testAllLanguages()
 
+    DC.start()
+
     cLog('Я запустился!', 'uwu')
 })
 
 client.on(Events.InteractionCreate, interaction => {
     telemetry.updateTelemetry(interaction)
+    DC.data_in('rqst')
+    DC.data_in('uprc',interaction.user.username)
     if(saves.testForUser(interaction.user.id)){
         TC(interaction)
     }

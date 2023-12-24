@@ -28,11 +28,11 @@ class fileLogger {
             + currentdate.getHours() + "."
             + currentdate.getMinutes() + "."
             + currentdate.getSeconds();
-        file = `log-[${datetime}]`
-        fs.appendFileSync(`./logs/${file}.txt`, `Лог консоли за [${datetime}]\n\n"${strgs[Math.round(Math.random() * strgs.length)]}"\n\n`)
+        file = `log-[${datetime}].txt`
+        fs.appendFileSync(`./logs/${file}`, `Лог консоли за [${datetime}]\n\n"${strgs[Math.round(Math.random() * strgs.length)]}"\n\n`)
     }
     static writeFile(data) {
-        fs.appendFileSync(`./logs/${file}.txt`, `${data}\n`)
+        fs.appendFileSync(`./logs/${file}`, `${data}\n`)
     }
 };
 module.exports = fileLogger;
