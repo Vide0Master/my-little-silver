@@ -11,7 +11,7 @@ module.exports = {
         .setName('language')
         .setDescription('Language select.'),
     async execute(interaction) {
-        const user_lang = SI.getSave(interaction.user.id, "user").settings.lang
+        const user_lang = SI.getSave(interaction.user.id).user.settings.lang
         let languages = []
         const lngs = LI.getLangs().l
         lngs.forEach((line) => {

@@ -42,7 +42,7 @@ class Commands {
     //* исполнить комманду
     static async commandExec(interaction) {
         const command = interaction.client.commands.get(interaction.commandName);
-        const lpack = LI.getLine("system.interactions.interaction_err", SI.getSave(interaction.user.id, "user").settings.lang)
+        const lpack = LI.getLine("system.interactions.interaction_err", SI.getSave(interaction.user.id).user.settings.lang)
         if (!command) {
             cLog(`Комманда ${interaction.commandName} не найдена!`, 'e')
             return;

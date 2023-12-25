@@ -8,11 +8,11 @@ const LI = require('../../lines/lineInteract.js')
 
 module.exports = {
     async execute(interaction) {
-        const sav = SI.getSave(interaction.user.id, "user")
-        sav.settings.lang = interaction.values[0]
-        SI.setSave(interaction.user.id, "user", sav)
+        let sav = SI.getSave(interaction.user.id)
+        sav.user.settings.lang = interaction.values[0]
+        SI.setSave(interaction.user.id, sav)
 
-        const user_lang = SI.getSave(interaction.user.id, "user").settings.lang
+        const user_lang = SI.getSave(interaction.user.id).user.settings.lang
 
         const lng_lines = LI.getLine('system.interactions.language', user_lang)
 
@@ -26,13 +26,13 @@ module.exports = {
             })
         })
 
-        let ru_warn=new EmbedBuilder().setColor(0xff0000).setTitle('ВНИМАНИЕ').setDescription('Ваш выбранный язык русский!\nВсе разработчики игры - украинцы, добавлять в игру русский язык было сложным решением, но всё же мы предоставляем сервис русским игрокам\nГлавный разработчик чуть более лоялен к россиянам, второй разработчик не очень, учтите это.\n\nПредупреждение!\nИграя в эту игру вы можете косвенным путём предоставлять данные Службе безопасности Украины, Главному управлению разведки Министерства обороны Украины, а так же Вооружённым силам Украины.\nЕсли вас обвинят в пособничестве ВСУ - это вне компентецении разработчиков.')
-        let embd=new EmbedBuilder().setColor(0x0096c8).setTitle(`${lng_lines.CRL}: ${lng_lines.NM}`)
+        let ru_warn = new EmbedBuilder().setColor(0xff0000).setTitle('ВНИМАНИЕ').setDescription('Игру делает украинец, и предоставляет возможность играть в игру на русском языке.\nОн вам не скажет что вы вашисты или тому подобное, сам же "укронацист", не так ли?\nЕдинственное что разработчик хочет сказать это то что все хотят мир, разраб тоже хочет, что-бы жилось спокойнее.\n\nВозможно некоторый функционал бота будет ограничен для русского перевода.\nИ возможно некоторые ваши данные будут передаваться СБУ)))\nВсем пис.')
+        let embd = new EmbedBuilder().setColor(0x0096c8).setTitle(`${lng_lines.CRL}: ${lng_lines.NM}`)
         let ready_embed
-        if(user_lang=='ru'){
-            ready_embed=[ru_warn,embd]
-        }else{
-            ready_embed=[embd]
+        if (user_lang == 'ru') {
+            ready_embed = [ru_warn, embd]
+        } else {
+            ready_embed = [embd]
         }
 
         interaction.update({

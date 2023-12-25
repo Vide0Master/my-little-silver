@@ -11,7 +11,7 @@ module.exports = {
         .setName('interact')
         .setDescription('Interact with Silver'),
     async execute(interaction) {
-        const lpack = LI.getLine("system.interactions.silver_interact", SI.getSave(interaction.user.id, "user").settings.lang)
+        const lpack = LI.getLine("system.interactions.silver_interact", SI.getSave(interaction.user.id).user.settings.lang)
 
         const interactions=[]
         for(let stat in lpack.stat_interactions){

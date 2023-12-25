@@ -12,9 +12,9 @@ module.exports = {
         .setName('silver_stats')
         .setDescription('Get our Silver stats.'),
     async execute(interaction) {
-        const save = SI.getSave(interaction.user.id, "save").Silver
-        let settings = SI.getSave(interaction.user.id, "user").settings
-        const lpack = LI.getLine("system.interactions.silver_stats", SI.getSave(interaction.user.id, "user").settings.lang)
+        const save = SI.getSave(interaction.user.id).save.Silver
+        const settings = SI.getSave(interaction.user.id).user.settings
+        const lpack = LI.getLine("system.interactions.silver_stats", settings.lang)
         
         let glos = ""
         for (let stat in save.base_stats) {

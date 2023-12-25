@@ -12,7 +12,7 @@ function decreaseStat(stat, inc) {
 
 module.exports = function (interaction) {
     //* получение сохранения и формирование таймстэмпа в минутах
-    let sav = SI.getSave(interaction.user.id, "save")
+    let sav = SI.getSave(interaction.user.id,).save
     const tm = Math.floor(((Date.now()-sav.Silver.LIT)/1000/60))
     //* обработка характеристик на основе разницы времени между последним и текущим взаимодействием
     if (tm>5 && sav.Silver.LIT!=0) {

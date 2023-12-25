@@ -12,7 +12,7 @@ module.exports = {
         .setName('bot_info')
         .setDescription('Get info about bot.'),
     async execute(interaction) {
-        const lpack = LI.getLine("system.interactions.bot_info",SI.getSave(interaction.user.id, "user").settings.lang)
+        const lpack = LI.getLine("system.interactions.bot_info",SI.getSave(interaction.user.id).user.settings.lang)
         await interaction.reply({
             embeds:
                 [new EmbedBuilder()

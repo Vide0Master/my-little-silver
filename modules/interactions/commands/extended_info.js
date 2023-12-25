@@ -11,7 +11,7 @@ module.exports = {
         .setName('extended_info')
         .setDescription('Extended info setting.'),
     async execute(interaction) {
-        const save = SI.getSave(interaction.user.id, "user")
+        const save = SI.getSave(interaction.user.id).user
         const lpack = LI.getLine("system.interactions.extended_info", save.settings.lang)
 
         let types = [];

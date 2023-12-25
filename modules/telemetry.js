@@ -9,14 +9,13 @@ class telemetry {
             save.createSave(interaction.user.id)
         }
         if (interaction.isCommand()) {
-            let file = save.getSave(interaction.user.id, 'telemetry')
-            if (eval(`file.commandsExecuted.${interaction.commandName} === undefined`)) {
-                eval(`file.commandsExecuted.${interaction.commandName}=1`)
+            let file = save.getSave(interaction.user.id)
+            if (file.telemetry.commandsExecuted[interaction.commandName] === undefined) {
+                file.telemetry.commandsExecuted[interaction.commandName] = 1
             } else {
-                eval(`file.commandsExecuted.${interaction.commandName} += 1`)
+                file.telemetry.commandsExecuted[interaction.commandName] += 1
             }
-
-            save.setSave(interaction.user.id, 'telemetry', file)
+            save.setSave(interaction.user.id, file)
         }
         if (interaction.isStringSelectMenu()) {
 

@@ -12,8 +12,8 @@ const save_template = {
         }
     },
     "save": {
+        "state": "unactive",
         "Silver": {
-            "state": "unactive",
             "LIT": "",
             "base_stats": {
                 "health": 100,

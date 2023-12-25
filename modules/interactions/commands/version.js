@@ -15,7 +15,7 @@ module.exports = {
         .setName('version')
         .setDescription('Get info about Silver current and older versions.'),
     async execute(interaction) {
-        const lpack = LI.getLine("system.interactions.version_menu", SI.getSave(interaction.user.id, "user").settings.lang)
+        const lpack = LI.getLine("system.interactions.version_menu", SI.getSave(interaction.user.id).user.settings.lang)
         let vers = [];
         versionFiles.forEach((file) => {
             const aver = JSON.parse(fs.readFileSync(`config/versions/${file}`))

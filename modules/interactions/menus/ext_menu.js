@@ -7,7 +7,7 @@ const LI = require('../../lines/lineInteract')
 
 module.exports = {
     async execute(interaction) {
-        let save = SI.getSave(interaction.user.id, "user")
+        let save = SI.getSave(interaction.user.id).user
         save.settings.extended_info = interaction.values[0]
         SI.setSave(interaction.user.id, "user", save)
 

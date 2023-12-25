@@ -4,35 +4,30 @@
 //*подключение библиотек и функций
 const fs = require('fs');
 const cLog = require('../consoleLogger')
-const db = require('../../config/techInfo.json').saveDB
+const TI = require('../../config/techInfo.json')
 
 
 class saveInteraction {
     //* получение файла сохранения по id пользователя и типу файла сохранения
-    static getSave(id, type) {
-        return JSON.parse(fs.readFileSync(`${db}/${id}.json`)[type])
+    static getSave(id) {
+        let sv=require(`../../${TI.saveDB}/${id}.json`)
+        return sv
     }
     //* обновление файла сохранения новыми данными
-    static setSave(id, type, data) {
-        fs.writeFileSync(`${db}/${id}/${type}.json`, JSON.stringify(data))
+    static setSave(id, data) {
+        fs.writeFileSync(`${TI.saveDB}/${id}.json`, JSON.stringify(data))
     }
     //* создание сохранения пользователя
     static createSave(id) {
         if (!saveInteraction.testForUser(id)) {
-            fs.mkdirSync(`${db}/${id}`)
-            const user = this.save_template.user
-            fs.writeFileSync(`${db}/${id}/user.json`, JSON.stringify(user))
-            const telemetry = this.save_template.telemetry
-            fs.writeFileSync(`${db}/${id}/telemetry.json`, JSON.stringify(telemetry))
-            const save = this.save_template.save
-            fs.writeFileSync(`${db}/${id}/save.json`, JSON.stringify(save))
+            fs.writeFileSync(`${TI.saveDB}/${id}.json`, JSON.stringify(require(`./version_modules/${TI.ver}.js`).ST))
             cLog(`Зарегестрирован новый пользователь, id:${id}`, 'i')
         }
     }
     //* проверка на существования пользователя по id
     static testForUser(id) {
         try {
-            require(`../../${db}/${id}.json`)
+            require(`../../${TI.saveDB}/${id}.json`)
             return true
         } catch (err) {
             return false
@@ -40,13 +35,13 @@ class saveInteraction {
     }
     //* проверка файлов сохранения на версии
     static testAllSaves() {
-        const saves = fs.readdirSync(`${db}`)
+        const saves = fs.readdirSync(`${TI.saveDB}`)
         let svs = {
             "outd": []
         }
         saves.forEach(SF => {
             try {
-                const US = require(`../../${db}/${SF}.json`)
+                const US = require(`../../${TI.saveDB}/${SF}.json`)
                 if (svs[US.meta.version] == undefined) {
                     svs[US.meta.version] = []
                     svs[US.meta.version].push(SF)
