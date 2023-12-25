@@ -59,9 +59,6 @@ client.on('ready', () => {
     cLog(flog.get_log_info(),'i')
 
     cLog('Я запустился!', 'uwu')
-
-    //const VM=require('./modules/saves/version_modules/0.2.3.js')
-    //VM.update_SF('304287796225376256')
 })
 
 client.on(Events.InteractionCreate, interaction => {
