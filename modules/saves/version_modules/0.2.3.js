@@ -12,7 +12,6 @@ const save_template = {
         }
     },
     "save": {
-        "state": "unactive",
         "Silver": {
             "LIT": "",
             "base_stats": {
@@ -24,9 +23,11 @@ const save_template = {
         }
     },
     "telemetry": {
-        "commandsExecuted": {}
+        "commandsExecuted": {},
+        "menusExecuted":{}
     },
     "meta": {
+        "state": "unactive",
         "version": "0.2.3"
     }
 }
@@ -44,6 +45,7 @@ module.exports = class {
         let new_save = save_template
         new_save = mergeObjects(save, new_save)
         fs.writeFileSync(`./${DB}/${id}.json`, JSON.stringify(new_save))
+        
     }
 }
 

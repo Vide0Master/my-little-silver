@@ -56,18 +56,17 @@ client.on('ready', () => {
 
     DC.start()
 
-    cLog(flog.get_log_info(),'i')
+    cLog(flog.get_log_info(), 'i')
 
     cLog('Я запустился!', 'uwu')
 })
 
 client.on(Events.InteractionCreate, interaction => {
-    telemetry.updateTelemetry(interaction)
+    saves.testFixUpdateCreate(interaction.user.id)
     DC.data_in('rqst')
-    DC.data_in('uprc',interaction.user.username)
-    if(saves.testForUser(interaction.user.id)){
-        TC(interaction)
-    }
+    DC.data_in('uprc', interaction.user.username)
+    TC(interaction)
     if (interaction.isCommand()) commands.commandExec(interaction);
     if (interaction.isStringSelectMenu()) menus.menuExec(interaction);
+    telemetry.updateTelemetry(interaction)
 });

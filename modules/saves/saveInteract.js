@@ -6,11 +6,11 @@ const fs = require('fs');
 const cLog = require('../consoleLogger')
 const TI = require('../../config/techInfo.json')
 
-
 class saveInteraction {
+
     //* получение файла сохранения по id пользователя и типу файла сохранения
     static getSave(id) {
-        let sv=require(`../../${TI.saveDB}/${id}.json`)
+        let sv = require(`../../${TI.saveDB}/${id}.json`)
         return sv
     }
     //* обновление файла сохранения новыми данными
@@ -27,13 +27,16 @@ class saveInteraction {
     //* проверка на существования пользователя по id
     static testForUser(id) {
         try {
-            require(`../../${TI.saveDB}/${id}.json`)
+            const sv = require(`../../${TI.saveDB}/${id}.json`)
+            if (sv.meta.version != TI.ver) {
+                return false
+            }
             return true
-        } catch (err) {
+        } catch {
             return false
         }
     }
-    //* проверка файлов сохранения на версии
+    //* проверка файлов сохранения на версии и вывод в консоль
     static testAllSaves() {
         const saves = fs.readdirSync(`${TI.saveDB}`)
         let svs = {
@@ -62,6 +65,25 @@ class saveInteraction {
             }
         }
         cLog(txt, 'i')
+    }
+    //* проверка юзера на актуальность сейва, его автоматическая миграция или создание
+    static testFixUpdateCreate(id) {
+        if (!this.testForUser(id)) {
+            try {
+                this.migrateSave(id)
+            } catch {
+                this.createSave(id)
+            }
+        }
+    }
+    //*миграция сейвов до самой последней версии
+    static migrateSave(id) {
+        let save;
+        try {
+            save = this.getSave(id)
+        } catch {
+            save = require('./version_modules/0.2.3.js').update_SF(id)
+        }
     }
 };
 module.exports = saveInteraction;
