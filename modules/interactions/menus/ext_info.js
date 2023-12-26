@@ -1,19 +1,18 @@
 
-//* extended_info от VideoMaster
+//* version menu от VideoMaster
 
-const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
 const SI = require('../../saves/saveInteract')
 const LI = require('../../lines/lineInteract')
 
 module.exports = {
-    settings: { active: true, public: false },
-    command: new SlashCommandBuilder()
-        .setName('extended_info')
-        .setDescription('Extended info setting.'),
     async execute(interaction) {
-        const save = SI.getSave(interaction.user.id).user
-        const lpack = LI.getLine("system.interactions.extended_info", save.settings.lang)
-
+        let save = SI.getSave(interaction.user.id)
+        if (interaction.values[0] != "ext_info") {
+            save.user.settings.extended_info = interaction.values[0]
+            SI.setSave(interaction.user.id, save)
+        }
+        const lpack = LI.getLine("system.interactions.extended_info", save.user.settings.lang)
         let types = [];
         lpack.types.forEach((line, i) => {
             types.push({
@@ -22,20 +21,20 @@ module.exports = {
             })
         })
 
-        await interaction.reply({
+        interaction.update({
             embeds:
                 [new EmbedBuilder()
-                    .setTitle(`${lpack.cur_disp} ${lpack.types[save.settings.extended_info]}.`)
+                    .setTitle(`${lpack.cur_disp} ${lpack.types[save.user.settings.extended_info]}.`)
                 ],
             components:
                 [new ActionRowBuilder()
                     .addComponents(
                         new StringSelectMenuBuilder()
-                            .setCustomId('ext_menu')
+                            .setCustomId('ext_info')
                             .setPlaceholder(lpack.PH_menu)
                             .addOptions(types)
                     )
                 ]
-        });
+        })
     }
-};
+}

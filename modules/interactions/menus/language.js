@@ -9,7 +9,8 @@ const LI = require('../../lines/lineInteract.js')
 module.exports = {
     async execute(interaction) {
         let sav = SI.getSave(interaction.user.id)
-        sav.user.settings.lang = interaction.values[0]
+        interaction.values[0]!="language" ? sav.user.settings.lang = interaction.values[0] : {}
+        
         SI.setSave(interaction.user.id, sav)
 
         const user_lang = SI.getSave(interaction.user.id).user.settings.lang

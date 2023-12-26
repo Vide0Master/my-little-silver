@@ -4,6 +4,40 @@
             "exapmle": {
                 "ER": "exapmle response!"
             },
+            "settings_menu":{
+                "title":"Settings",
+                "desc":"Change different settings of your Silver bot",
+                "placeholder":"Select setting to edit...",
+                "options_list":{
+                    "lang":"Language",
+                    "ext_inf":"Extended info",
+                    "contr_menu":"Menu of control"
+                }
+            },
+            "account_state": {
+                "user_freeze":{
+                    "title":"Your Silver bot is frozen.",
+                    "desc":"Visit setting for unfreeze option."
+                },
+                "admin_freeze": {
+                    "title": "Sorry, but your Silver profile was frozen by administrator...",
+                    "desc": "Contact the developer for more info."
+                },
+                "admin_ban": {
+                    "title": "You have been banned.",
+                    "desc": "If you think your ban was unfair or unreasoned, contact the developer.\n\nIn 90% situations ban could be caused by violation of user agreement."
+                }
+            },
+            "start": {
+                "s_start": {
+                    "title": "Your Silver succefully started.",
+                    "desc": "Try it with \"/interact\" command!"
+                },
+                "a_start": {
+                    "title": "Your Silver already started.",
+                    "desc": "You don`t need to use this command :smiling_face_with_3_hearts:"
+                }
+            },
             "interaction_err": {
                 "DM_call": "This command should be exetuted in DM with bot.",
                 "CMND_err": "Command error occured, contact developer ASAP!"
@@ -11,7 +45,7 @@
             "language": {
                 "CL": "Choose language",
                 "NM": "English",
-                "CRL": "Chosen language"
+                "CRL": "Language"
             },
             "bot_info": {
                 "head": "Silver bot info"
@@ -51,6 +85,25 @@
                     "hunger": "Silver was fed",
                     "dirt": "Silver was washed",
                     "mood": "Silver was stroked"
+                }
+            },
+            "control_menu":{
+                "def_state":{
+                    "title": "Control menu",
+                    "desc": "Control states of your Silver"
+                },
+                "freeze":{
+                    "title": "Freezed",
+                    "desc": "Your bot was frozen, any Silver related operations will be unavialable, stats calculation paused and be resumed after unfreezing."
+                },
+                "unfreeze":{
+                    "title": "Unfreezed",
+                    "desc": "Your bot was unfrozen, all Silver related operations are available."
+                },
+                "placeholder":"Select option...",
+                "options":{
+                    "freeze":"Freeze your Silver",
+                    "unfreeze":"Unfreeze you Silver"
                 }
             }
         },
