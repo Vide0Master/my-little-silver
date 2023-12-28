@@ -12,7 +12,7 @@ const flog = require('./modules/fileLogger.js')
 const DC = require('./modules/data_collector.js')
 
 //* подключение библиотек
-const { Client, GatewayIntentBits, Events } = require('discord.js');
+const { Client, GatewayIntentBits, Events, EmbedBuilder } = require('discord.js');
 
 //* создание клиента "пустышки"
 const client = new Client({
@@ -62,11 +62,10 @@ client.on('ready', () => {
 })
 
 client.on(Events.InteractionCreate, interaction => {
-    saves.testFixUpdateCreate(interaction.user.id)
+    if (interaction.isCommand()) { commands.commandExec(interaction) };
+    if (interaction.isStringSelectMenu()) { menus.menuExec(interaction) };
     DC.data_in('rqst')
     DC.data_in('uprc', interaction.user.username)
     TC(interaction)
-    if (interaction.isCommand()) commands.commandExec(interaction);
-    if (interaction.isStringSelectMenu()) menus.menuExec(interaction);
     telemetry.updateTelemetry(interaction)
 });

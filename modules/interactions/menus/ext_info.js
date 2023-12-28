@@ -21,7 +21,7 @@ module.exports = {
             })
         })
 
-        interaction.update({
+        await interaction.update({
             embeds:
                 [new EmbedBuilder()
                     .setTitle(`${lpack.cur_disp} ${lpack.types[save.user.settings.extended_info]}.`)

@@ -33,9 +33,9 @@ class Menus {
     //* вызов обработки меню
     static async menuExec(interaction) {
         const menu = interaction.client.menus.get(interaction.customId);
-
         if (!menu) {
             cLog(`Файл меню ${interaction.customId} не найден!`, 'e')
+            interaction.update({content: `Файл меню ${interaction.customId} не найден!`})
             return;
         }
 
@@ -43,7 +43,7 @@ class Menus {
             await menu.execute(interaction);
         } catch (error) {
             cLog(`Произошла непредвиденная ошибка [${error}] в меню [${interaction.menuName}]!`, 'e')
-            await interaction.reply({ content: 'Произошла ошибка обработки файла меню, сообщите об этом разработчику!', ephemeral: true });
+            await interaction.update({ content: 'Произошла ошибка обработки файла меню, сообщите об этом разработчику!', ephemeral: true });
         }
     }
 }

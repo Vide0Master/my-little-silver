@@ -46,7 +46,7 @@ module.exports = {
             info = `${slpack.base_stats[stat]}\n${BC(save.save.Silver.base_stats[stat], 100, 12)}`
         }
         const line=LI.getRandomLine(`system.lines.interactions.silver_stats.${stat}`,SI.getSave(interaction.user.id).user.settings.lang)
-        interaction.update({
+        await interaction.update({
             content:line,
             embeds:
                 [new EmbedBuilder()

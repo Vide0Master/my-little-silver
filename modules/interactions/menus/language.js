@@ -36,7 +36,7 @@ module.exports = {
             ready_embed = [embd]
         }
 
-        interaction.update({
+        await interaction.update({
             embeds:
                 ready_embed,
             components:

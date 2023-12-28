@@ -92,18 +92,18 @@
                     "title": "Control menu",
                     "desc": "Control states of your Silver"
                 },
-                "freeze":{
+                "freezed":{
                     "title": "Freezed",
                     "desc": "Your bot was frozen, any Silver related operations will be unavialable, stats calculation paused and be resumed after unfreezing."
                 },
-                "unfreeze":{
+                "active":{
                     "title": "Unfreezed",
-                    "desc": "Your bot was unfrozen, all Silver related operations are available."
+                    "desc": "Your bot was unfrozen, Silver functionality restored."
                 },
                 "placeholder":"Select option...",
                 "options":{
-                    "freeze":"Freeze your Silver",
-                    "unfreeze":"Unfreeze you Silver"
+                    "freeze":"Freeze Silver",
+                    "unfreeze":"Unfreeze Silver"
                 }
             }
         },
