@@ -20,7 +20,8 @@ const save_template = {
                 "dirt": 100,
                 "mood": 50
             }
-        }
+        },
+        "timeouts":[]
     },
     "telemetry": {
         "commandsExecuted": {},

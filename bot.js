@@ -7,7 +7,7 @@ const menus = require('./modules/interactions/menus.js')
 const telemetry = require('./modules/telemetry.js')
 const saves = require('./modules/saves/saveInteract.js')
 const LI = require('./modules/lines/lineInteract')
-const TC = require('./modules/time_calculator')
+const STI = require('./modules/stat_modules/stat_interact.js')
 const flog = require('./modules/fileLogger.js')
 const DC = require('./modules/data_collector.js')
 
@@ -58,10 +58,14 @@ client.on('ready', () => {
 
     cLog(flog.get_log_info(), 'i')
 
+    STI.aquireAllStats()
+
     cLog('Я запустился!', 'uwu')
+    cLog('Но лог консоли перечитай, может я где-то ошибся?~','owo')
 })
 
 client.on(Events.InteractionCreate, interaction => {
+    saves.testFixUpdateCreate(interaction.user.id)
     if (interaction.isCommand()) { commands.commandExec(interaction) };
     if (interaction.isStringSelectMenu()) { menus.menuExec(interaction) };
     DC.data_in('rqst')

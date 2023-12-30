@@ -15,6 +15,7 @@ module.exports = {
             if (interaction.values[0] != "control_menu") {
                 save.meta.state=interaction.values[0]
                 embed=lpack[interaction.values[0]]
+                if(interaction.values[0]=="active") save.save.Silver.LIT=Date.now()
             }
 
             SI.setSave(interaction.user.id, save)

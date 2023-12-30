@@ -6,7 +6,6 @@ const SI = require('../../saves/saveInteract')
 const LI = require('../../lines/lineInteract')
 const clamp = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));
 const BC = require('../../block_chart.js')
-const increments = require('../../../config/Silver_values.json').increments
 
 function increaseStat(stt, inc) {
     return clamp(stt - 0 + inc, 0, 100)
