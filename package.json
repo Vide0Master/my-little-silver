@@ -1,0 +1,14 @@
+{
+  "name": "my-little-silver",
+  "version": "1.0.0",
+  "description": "Discord tamagochi-styled bot, about porn comic persona",
+  "main": "MAIN.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.14.1"
+  }
+}
